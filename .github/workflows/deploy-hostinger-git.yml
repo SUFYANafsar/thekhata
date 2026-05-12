@@ -30,12 +30,15 @@ jobs:
       - name: Build (Astro → dist + Pagefind)
         run: npm run build
 
+      # force_orphan: true rewrites deploy history every run; Hostinger’s clone then
+      # diverges and `git pull` fails (“Need to specify how to reconcile divergent branches”).
+      # Linear commits on `deploy` allow normal fast-forward pulls on the host.
       - name: Push dist/ to branch “deploy” (for Hostinger Git pull)
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: deploy
-          force_orphan: true
+          force_orphan: false
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
