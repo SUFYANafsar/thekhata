@@ -1,4 +1,4 @@
-/** Set `PUBLIC_SHOW_VIDEO_EMBEDS=true` in `.env` to render real YouTube iframes; otherwise placeholders / disabled watch links. Also gates `/video/` Yotu playlist vs YouTube-outbound thumbnails. */
+/** Set `PUBLIC_SHOW_VIDEO_EMBEDS=true` in `.env` to render real YouTube iframes; otherwise placeholders / disabled watch links. On `/video/`, embed-off also removes YouTube thumbnail images (no i.ytimg.com requests). */
 export function isVideoEmbedsEnabled(): boolean {
   return import.meta.env.PUBLIC_SHOW_VIDEO_EMBEDS === 'true'
 }

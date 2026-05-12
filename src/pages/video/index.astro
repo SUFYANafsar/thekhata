@@ -85,7 +85,7 @@ const bodyRaw = `<div id="et-main-area">
 											</div>
 
 					<div class="yotu-videos yotu-mode-grid yotu-column-2 yotu-player-mode-large">
-	<ul>
+	<!-- <ul>
 					<li class=" yotu-first">
 								<a href="#8J_NVI-fq_Y" class="yotu-video" data-videoid="8J_NVI-fq_Y" data-title="How to Create &amp; Assign Product Brands in Spartan Accounts | Complete Guide" title="How to Create &amp; Assign Product Brands in Spartan Accounts | Complete Guide">
 					<div class="yotu-video-thumb-wrp">
@@ -350,7 +350,7 @@ const bodyRaw = `<div id="et-main-area">
 																			</a>
 							</li>
 				
-				</ul>
+				</ul>  --->
 </div><div class="yotu-pagination" style="display:none" aria-hidden="true">
 	<a href="#" class="yotu-pagination-more yotu-button-prs yotu-button-prs-1" data-page="more">Load more</a>
 </div>
@@ -434,12 +434,20 @@ const bodyRaw = `<div id="et-main-area">
 function applyVideoPlaylistEmbedEnv(html: string): string {
   if (showVideoEmbeds) return html
   let out = html.replace(
+    'class="yotu-playlist yotuwp',
+    'class="yotu-playlist yotuwp yotu-playlist--embed-off'
+  )
+  out = out.replace(
+    /<img data-lazyloaded="1" decoding="async" class="yotu-video-thumb" data-src="https:\/\/i\.ytimg\.com\/vi\/[A-Za-z0-9_-]+\/sddefault\.jpg" alt="[^"]*">\s*<noscript><img decoding="async" class="yotu-video-thumb" src="https:\/\/i\.ytimg\.com\/vi\/[A-Za-z0-9_-]+\/sddefault\.jpg" alt="[^"]*"><\/noscript>/g,
+    '<div class="yotu-video-thumb yotu-video-thumb--embed-off" aria-hidden="true"></div>'
+  )
+  out = out.replace(
     /<a href="#([A-Za-z0-9_-]+)" class="yotu-video"/g,
     '<a href="https://www.youtube.com/watch?v=$1" target="_blank" rel="noopener noreferrer" class="yotu-video"'
   )
   out = out.replace(
     /<div class="yotu-video-placeholder" id="yotu-player-6a021e5a28cb8"><\/div>/,
-    '<div class="et_pb_video_box et-video-placeholder-wrap" style="aspect-ratio:1024/576;max-width:100%;width:min(1024px,100%)"><div class="et-video-placeholder-inner"><p class="et-video-placeholder-title">On-site player disabled</p><p class="et-video-placeholder-sub">Set PUBLIC_SHOW_VIDEO_EMBEDS=true in .env for embedded playback. Thumbnails below open each tutorial on YouTube.</p></div></div>'
+    '<div class="et_pb_video_box et-video-placeholder-wrap" style="aspect-ratio:1024/576;max-width:100%;width:min(1024px,100%)"><div class="et-video-placeholder-inner"><p class="et-video-placeholder-title">On-site player disabled</p><p class="et-video-placeholder-sub">Set PUBLIC_SHOW_VIDEO_EMBEDS=true in .env for embedded playback and YouTube thumbnails. Each title below opens the tutorial on YouTube.</p></div></div>'
   )
   return out
 }
@@ -466,14 +474,16 @@ const body = applyVideoPlaylistEmbedEnv(bodyRaw)
     {showVideoEmbeds && (
       <script is:inline src="/wp-content/litespeed/js/d8f2693d793bfe42c2023545d456118cb0bf.js" />
     )}
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('img.yotu-video-thumb[data-src]').forEach(function (img) {
-          var u = img.getAttribute('data-src')
-          if (u) img.setAttribute('src', u)
+    {showVideoEmbeds && (
+      <script is:inline>
+        document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('img.yotu-video-thumb[data-src]').forEach(function (img) {
+            var u = img.getAttribute('data-src')
+            if (u) img.setAttribute('src', u)
+          })
         })
-      })
-    </script>
+      </script>
+    )}
   </Fragment>
   <div set:html={body} />
 </PageLayout>
