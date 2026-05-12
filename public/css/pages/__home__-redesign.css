@@ -258,7 +258,7 @@
   gap: 60px;
   align-items: center;
 }
-.fbr-overview h2 { font-size: clamp(26px,3vw,38px); font-weight: 700; margin: 0 0 20px; }
+.fbr-overview h2 { font-size: clamp(26px,3vw,38px); font-weight: 700; margin: 0 0 20px; color: #fff !important; }
 .fbr-overview p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,.75); margin-bottom: 16px; }
 .fbr-overview a { color: #64bfec; text-decoration: none; }
 .fbr-overview a:hover { text-decoration: underline; }

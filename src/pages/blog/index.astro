@@ -1,446 +1,306 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
-const body = `<div id="et-main-area">
-	
-<div id="main-content">
 
+const posts = [
+  {
+    slug: '/barcode-integration-and-sku-management-for-smart-retailing/',
+    title: 'Barcode Integration and SKU Management for Smart Retailing',
+    author: 'Usama M.',
+    date: 'Oct 30, 2025',
+    category: 'Retail',
+    categorySlug: '/category/retail/',
+    excerpt: 'In the fast-paced world of retail, accuracy and speed are critical to business success. Managing thousands of products manually often leads to human errors, slow billing, and poor inventory visibility. This is where barcode integration and SKU management play a vital role...',
+    icon: '🏷️',
+  },
+  {
+    slug: '/how-to-choose-the-right-software-for-retail-shop-and-move-beyond-manual-work/',
+    title: 'How to Choose the Right Software for Retail Shop and Move Beyond Manual Work',
+    author: 'Usama M.',
+    date: 'Oct 10, 2025',
+    category: 'Retail',
+    categorySlug: '/category/retail/',
+    excerpt: 'Running a retail shop today requires more than just great products and good customer service — it also demands efficiency, accuracy, and smart management of business operations. Many retailers still rely on manual methods...',
+    icon: '🏪',
+  },
+  {
+    slug: '/why-splendid-accounts-is-the-easiest-accounting-software-to-use/',
+    title: 'Why Spartan Accounts Is the Easiest Accounting Software to Use',
+    author: 'Usama M.',
+    date: 'Sep 26, 2025',
+    category: 'Accounting',
+    categorySlug: '/category/accounting/',
+    excerpt: 'Managing accounts and inventory is one of the biggest challenges for small and medium-sized businesses. Traditional accounting methods, or even overly complex software, often make things harder instead of easier...',
+    icon: '📊',
+  },
+  {
+    slug: '/retailers-vs-wholesalers-different-scenarios-in-fbr-digital-invoicing/',
+    title: 'Retailers vs. Wholesalers: Different Scenarios in FBR Digital Invoicing',
+    author: 'Usama M.',
+    date: 'Sep 18, 2025',
+    category: 'Wholesale & Distribution',
+    categorySlug: '/category/wholesale-and-distribution/',
+    excerpt: 'As the Federal Board of Revenue (FBR) continues to strengthen Pakistan\'s tax system, digital invoicing has become a critical requirement for businesses. Both retailers and wholesalers are required to generate FBR-compliant invoices...',
+    icon: '🧾',
+  },
+  {
+    slug: '/why-every-retailer-needs-advanced-inventory-control-systems/',
+    title: 'Why Every Retailer Needs Advanced Inventory Control Systems',
+    author: 'Usama M.',
+    date: 'Sep 17, 2025',
+    category: 'Retail',
+    categorySlug: '/category/retail/',
+    excerpt: 'In the fast-paced world of retail, managing inventory effectively can make or break a business. Whether you run a small shop or a chain of retail outlets, the ability to track, control, and optimize your stock is essential...',
+    icon: '📦',
+  },
+  {
+    slug: '/the-role-of-hs-codes-in-fbr-digital-invoicing-a-complete-guide/',
+    title: 'The Role of HS Codes in FBR Digital Invoicing: A Complete Guide',
+    author: 'Usama M.',
+    date: 'Sep 15, 2025',
+    category: 'Accounting',
+    categorySlug: '/category/accounting/',
+    excerpt: 'With the implementation of FBR Digital Invoicing, businesses in Pakistan must comply with strict requirements when posting invoices through PRAL. One of the most critical yet often misunderstood components is the HS Code...',
+    icon: '📋',
+  },
+  {
+    slug: '/why-your-business-needs-a-combined-sales-inventory-software/',
+    title: 'Why Your Business Needs a Combined Sales & Inventory Software',
+    author: 'Usama M.',
+    date: 'Aug 5, 2025',
+    category: 'Retail',
+    categorySlug: '/category/retail/',
+    excerpt: 'In today\'s competitive business landscape, efficiency and accuracy are not just advantages — they are necessities. Whether you\'re running a retail store, wholesale operation, or managing an e-commerce platform...',
+    icon: '🔗',
+  },
+  {
+    slug: '/all-you-need-to-know-about-pral-integration-in-fbr-e-invoicing/',
+    title: 'All You Need to Know About PRAL Integration in FBR E-Invoicing',
+    author: 'Usama M.',
+    date: 'Jul 29, 2025',
+    category: 'Accounting',
+    categorySlug: '/category/accounting/',
+    excerpt: 'As Pakistan moves towards a digitized tax system, e-invoicing compliance through PRAL integration has become essential for many businesses. Whether you\'re a retailer, wholesaler, or manufacturer, understanding how PRAL fits in is key...',
+    icon: '🔌',
+  },
+  {
+    slug: '/the-real-reason-small-businesses-struggle-with-accounting/',
+    title: 'The Real Reason Small Businesses Struggle With Accounting',
+    author: 'Usama M.',
+    date: 'Jul 18, 2025',
+    category: 'Accounting',
+    categorySlug: '/category/accounting/',
+    excerpt: 'In Pakistan, thousands of small businesses open every year, but many of them struggle to grow — and one of the hidden reasons is poor accounting practices. For many business owners, managing daily expenses, sales, and taxes without proper systems leads to stress...',
+    icon: '💡',
+  },
+  {
+    slug: '/barcode-management-speed-up-your-retail-billing-process/',
+    title: 'Barcode Management: Speed Up Your Retail Billing Process',
+    author: 'Usama M.',
+    date: 'Jul 11, 2025',
+    category: 'Retail',
+    categorySlug: '/category/retail/',
+    excerpt: 'Billing delays and manual errors can frustrate customers and slow down retail operations. A simple yet powerful solution to this problem is barcode management — a system that automates product identification and speeds up every transaction...',
+    icon: '⚡',
+  },
+]
 
-			
-				<article id="post-237101" class="post-237101 page type-page status-publish hentry">
-
-				
-					<div class="entry-content">
-					<div class="et-l et-l--post">
-			<div class="et_builder_inner_content et_pb_gutters2"><div class="et_pb_section et_pb_section_0 et_section_regular" >
-				
-				
-				
-				
-				
-				
-				<div class="et_pb_row et_pb_row_0">
-				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough et-last-child">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><h1 style="text-align: center;">Spartan Accounts Blogs</h1></div>
-			</div><div class="et_pb_module et_pb_blog_0 et_pb_posts et_pb_bg_layout_light ">
-				
-				
-				
-				
-				<div class="et_pb_ajax_pagination_container">
-					
-			<article id="post-239390" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_0 post-239390 post type-post status-publish format-standard hentry category-retail tag-accounting-software-for-retailers tag-retail-pos">
-
-				
-														<h2 class="entry-title">
-													<a href="/../barcode-integration-and-sku-management-for-smart-retailing/">Barcode Integration and SKU Management for Smart Retailing</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Oct 30, 2025</span> | <a href="/../category/retail/" rel="tag">Retail</a></p><div class="post-content"><div class="post-content-inner"><p>In the fast-paced world of retail, accuracy and speed are critical to business success. Managing thousands of products manually often leads to human errors, slow billing, and poor inventory visibility. This is where barcode integration and SKU management play a vital...</p>
-</div><a href="/../barcode-integration-and-sku-management-for-smart-retailing/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239280" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_1 post-239280 post type-post status-publish format-standard hentry category-retail tag-accounting-software-for-retailers tag-retail-accounting tag-retail-pos">
-
-				
-														<h2 class="entry-title">
-													<a href="/../how-to-choose-the-right-software-for-retail-shop-and-move-beyond-manual-work/">How to Choose the Right Software for Retail Shop and Move Beyond Manual Work</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Oct 10, 2025</span> | <a href="/../category/retail/" rel="tag">Retail</a></p><div class="post-content"><div class="post-content-inner"><p>Running a retail shop today requires more than just great products and good customer service—it also demands efficiency, accuracy, and smart management of business operations. Many retailers still rely on manual methods, such as handwritten records, spreadsheets, or...</p>
-</div><a href="/../how-to-choose-the-right-software-for-retail-shop-and-move-beyond-manual-work/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239283" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_2 post-239283 post type-post status-publish format-standard hentry category-accounting tag-accounting-software tag-accounting-software-for-retailers">
-
-				
-														<h2 class="entry-title">
-													<a href="/../why-splendid-accounts-is-the-easiest-accounting-software-to-use/">Why Spartan Accounts Is the Easiest Accounting Software to Use</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Sep 26, 2025</span> | <a href="/../category/accounting/" rel="tag">Accounting</a></p><div class="post-content"><div class="post-content-inner"><p>Managing accounts and inventory is one of the biggest challenges for small and medium-sized businesses. Traditional accounting methods, or even overly complex software, often make things harder instead of easier. Business owners need a solution that saves time,...</p>
-</div><a href="/../why-splendid-accounts-is-the-easiest-accounting-software-to-use/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239273" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_3 post-239273 post type-post status-publish format-standard hentry category-wholesale-and-distribution tag-billing-software tag-retail-pos tag-wholesale-accounting tag-wholesale-management">
-
-				
-														<h2 class="entry-title">
-													<a href="/../retailers-vs-wholesalers-different-scenarios-in-fbr-digital-invoicing/">Retailers vs. Wholesalers: Different Scenarios in FBR Digital Invoicing</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Sep 18, 2025</span> | <a href="/../category/wholesale-and-distribution/" rel="tag">Wholesale and Distribution</a></p><div class="post-content"><div class="post-content-inner"><p>As the Federal Board of Revenue (FBR) continues to strengthen Pakistan’s tax system, digital invoicing has become a critical requirement for businesses. Both retailers and wholesalers are required to generate FBR-compliant invoices, but the scenarios they face can be...</p>
-</div><a href="/../retailers-vs-wholesalers-different-scenarios-in-fbr-digital-invoicing/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239262" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_4 post-239262 post type-post status-publish format-standard hentry category-retail tag-accounting-software-for-retailers tag-retail-accounting tag-retail-pos">
-
-				
-														<h2 class="entry-title">
-													<a href="/../why-every-retailer-needs-advanced-inventory-control-systems/">Why Every Retailer Needs Advanced Inventory Control Systems</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Sep 17, 2025</span> | <a href="/../category/retail/" rel="tag">Retail</a></p><div class="post-content"><div class="post-content-inner"><p>In the fast-paced world of retail, managing inventory effectively can make or break a business. Whether you run a small shop or a chain of retail outlets, the ability to track, control, and optimize your stock is essential. Traditional methods of inventory...</p>
-</div><a href="/../why-every-retailer-needs-advanced-inventory-control-systems/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239253" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_5 post-239253 post type-post status-publish format-standard hentry category-accounting tag-accounting-software tag-accounting-software-for-retailers tag-billing-software tag-distribution-accounting tag-wholesale-accounting">
-
-				
-														<h2 class="entry-title">
-													<a href="/../the-role-of-hs-codes-in-fbr-digital-invoicing-a-complete-guide/">The Role of HS Codes in FBR Digital Invoicing: A Complete Guide</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Sep 15, 2025</span> | <a href="/../category/accounting/" rel="tag">Accounting</a></p><div class="post-content"><div class="post-content-inner"><p>Introduction With the implementation of FBR Digital Invoicing, businesses in Pakistan must comply with strict requirements when posting invoices through PRAL. One of the most critical yet often misunderstood components of this process is the HS Code. Many businesses...</p>
-</div><a href="/../the-role-of-hs-codes-in-fbr-digital-invoicing-a-complete-guide/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239224" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_6 post-239224 post type-post status-publish format-standard hentry category-retail category-wholesale-and-distribution tag-accounting-software-for-retailers tag-point-of-sale-pos tag-wholesale-management">
-
-				
-														<h2 class="entry-title">
-													<a href="/../why-your-business-needs-a-combined-sales-inventory-software/">Why Your Business Needs a Combined Sales &amp; Inventory Software</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Aug 5, 2025</span> | <a href="/../category/retail/" rel="tag">Retail</a>, <a href="/../category/wholesale-and-distribution/" rel="tag">Wholesale and Distribution</a></p><div class="post-content"><div class="post-content-inner"><p>In today’s competitive business landscape, efficiency and accuracy are not just advantages — they are necessities. Whether you’re running a retail store, wholesale operation, or managing an e-commerce platform, two of the most crucial aspects of your business are...</p>
-</div><a href="/../why-your-business-needs-a-combined-sales-inventory-software/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239215" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_7 post-239215 post type-post status-publish format-standard hentry category-accounting category-retail category-wholesale-and-distribution tag-billing-software tag-distribution-accounting tag-wholesale-accounting">
-
-				
-														<h2 class="entry-title">
-													<a href="/../all-you-need-to-know-about-pral-integration-in-fbr-e-invoicing/">All You Need to Know About PRAL Integration in FBR E-Invoicing</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Jul 29, 2025</span> | <a href="/../category/accounting/" rel="tag">Accounting</a>, <a href="/../category/retail/" rel="tag">Retail</a>, <a href="/../category/wholesale-and-distribution/" rel="tag">Wholesale and Distribution</a></p><div class="post-content"><div class="post-content-inner"><p>As Pakistan moves towards a digitized tax system, e-invoicing compliance through PRAL integration has become essential for many businesses. Whether you're a retailer, wholesaler, or manufacturer, understanding how PRAL fits into the FBR e-invoicing ecosystem is key to...</p>
-</div><a href="/../all-you-need-to-know-about-pral-integration-in-fbr-e-invoicing/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239207" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_8 post-239207 post type-post status-publish format-standard hentry category-accounting tag-accounting-software-for-retailers tag-billing-software tag-distribution-accounting tag-wholesale-accounting">
-
-				
-														<h2 class="entry-title">
-													<a href="/../the-real-reason-small-businesses-struggle-with-accounting/">The Real Reason Small Businesses Struggle With Accounting</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Jul 18, 2025</span> | <a href="/../category/accounting/" rel="tag">Accounting</a></p><div class="post-content"><div class="post-content-inner"><p>In Pakistan, thousands of small businesses open every year, but many of them struggle to grow—and one of the hidden reasons is poor accounting practices. For many business owners, managing daily expenses, sales, and taxes without proper systems leads to stress,...</p>
-</div><a href="/../the-real-reason-small-businesses-struggle-with-accounting/" class="more-link">read more</a></div>			
-			</article>
-				
-			<article id="post-239187" class="et_pb_post clearfix et_pb_no_thumb et_pb_blog_item_0_9 post-239187 post type-post status-publish format-standard hentry category-retail tag-retail-accounting tag-retail-pos">
-
-				
-														<h2 class="entry-title">
-													<a href="/../barcode-management-speed-up-your-retail-billing-process/">Barcode Management: Speed Up Your Retail Billing Process</a>
-											</h2>
-				
-					<p class="post-meta">by <span class="author vcard"><a href="/../author/2samaaprmzesd/" title="Posts by Usama M." rel="author">Usama M.</a></span> | <span class="published">Jul 11, 2025</span> | <a href="/../category/retail/" rel="tag">Retail</a></p><div class="post-content"><div class="post-content-inner"><p>Billing delays and manual errors can frustrate customers and slow down retail operations. A simple yet powerful solution to this problem is barcode management—a system that automates product identification and speeds up every transaction at the counter. What is...</p>
-</div><a href="/../barcode-management-speed-up-your-retail-billing-process/" class="more-link">read more</a></div>			
-			</article>
-				<div><div class="pagination clearfix">
-	<div class="alignleft"><a href="page/2/indexf83b.html?et_blog" >&laquo; Older Entries</a></div>
-	<div class="alignright"></div>
-</div></div></div>
-				</div>
-				 
-			</div>
-				
-				
-				
-				
-			</div>
-				
-				
-			</div>		</div>
-	</div>
-						</div>
-
-				
-				</article>
-
-			
-
-</div>
-
-	<footer class="et-l et-l--footer">
-			<div class="et_builder_inner_content et_pb_gutters1">
-		<div class="et_pb_section et_pb_section_0_tb_footer et_pb_with_background et_section_regular" >
-				
-				
-				
-				
-				
-				
-				<div class="et_pb_row et_pb_row_0_tb_footer">
-				<div class="et_pb_column et_pb_column_1_4 et_pb_column_0_tb_footer  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_blurb et_pb_blurb_0_tb_footer  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_blurb_content">
-					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap et_pb_only_image_mode_wrap"><img data-lazyloaded="1" decoding="async" width="244" height="61" src="/wp-content/uploads/2021/08/logo.png" alt="" class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone wp-image-7" /><noscript><img decoding="async" width="244" height="61" src="/wp-content/uploads/2021/08/logo.png" alt="" class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone wp-image-7" /></noscript></span></div>
-					<div class="et_pb_blurb_container">
-						<h4 class="et_pb_module_header"><span>Who we are</span></h4>
-						<div class="et_pb_blurb_description">FBRsoftware.com is designed and developed byfbrsoftware. As an Accounting software, our core objective is to provide quality services to small business with no infrastructure and maintenance cost.</div>
-					</div>
-				</div>
-			</div><div class="et_pb_module et_pb_text et_pb_text_0_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner">Secure checkout via</div>
-			</div><div class="et_pb_module et_pb_image et_pb_image_0_tb_footer">
-				
-				
-				
-				
-				<span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="231" height="60" src="/wp-content/uploads/2024/09/hblpaycheckout.png" alt="" title="hblpaycheckout" class="wp-image-238686" /><noscript><img decoding="async" width="231" height="60" src="/wp-content/uploads/2024/09/hblpaycheckout.png" alt="" title="hblpaycheckout" class="wp-image-238686" /></noscript></span>
-			</div>
-			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_1_tb_footer  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_1_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><h3 class="footer-widget-title ui--widget-title">Services</h3></div>
-			</div><div class="et_pb_module et_pb_text et_pb_text_2_tb_footer footerspace  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><ul>
-<ul>
-<li><a href="/../sales/">Sales</a></li>
-<li><a href="/../purchases/">Purchases</a></li>
-<li><a href="/../accounting/">Accounting</a></li>
-<li><a href="/../inventory/">Inventory</a></li>
-<li><a href="/../manufacturing/">Manufacturing</a></li>
-<li><a href="/../point-of-sale/">POS</a></li>
-<li><a href="/../reporting/">Reporting</a></li>
-<li><a href="/../order-booking-app/">Order Booker App</a></li>
-<li><a href="/../splendid-invoices-app/">Spartan Invoices App</a></li>
-<li><a href="/../sales-tracking-app/">Sales Tracking App</a></li>
-<li><a href="/../knowledge-base/">Knowledge Base</a></li>
-<li><a href="/../contact/">Contact</a></li>
-</ul>
-</ul>
-<p>&nbsp;</p></div>
-			</div>
-			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_2_tb_footer  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_3_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><h3 class="footer-widget-title ui--widget-title">Get in touch<br />
-</h3></div>
-			</div><div class="et_pb_module et_pb_text et_pb_text_4_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><p><strong>E-mail: </strong><a href="mailto:suport@fbrsoftware.com">suport@fbrsoftware.com</a></p></div>
-			</div><div class="et_pb_module et_pb_text et_pb_text_5_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><strong>For Sales and Support:</strong><br />
-<strong>UAN:</strong> <a href="tel:+92332 500 8992">+92332 500 8992</a><br />
-<strong>Whatsapp: </strong><img data-lazyloaded="1" decoding="async" src="/wp-content/uploads/2021/08/whatapp-icon.png" width="20" height="20" alt="" class="wp-image-144 alignnone size-full" /><noscript><img decoding="async" src="/wp-content/uploads/2021/08/whatapp-icon.png" width="20" height="20" alt="" class="wp-image-144 alignnone size-full" /></noscript><a href="https://wa.me/923325008992" target="_blank" rel="noopener">+92332 500 8992</a></div>
-			</div><div class="et_pb_module et_pb_text et_pb_text_6_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><p><strong>Address:<br /></strong><span>Block 2 PHA Building G 7/1 </span><span>,<br />Islamabad, Pakistan</span></p></div>
-			</div>
-			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_3_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_7_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner"><h3 class="footer-widget-title ui--widget-title">Social Media<br />
-</h3></div>
-			</div><ul class="et_pb_module et_pb_social_media_follow et_pb_social_media_follow_0_tb_footer clearfix  et_pb_bg_layout_light">
-				
-				
-				
-				
-				<li
-            class='et_pb_social_media_follow_network_0_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-facebook'><a
-              href='https://www.facebook.com/spartanaccount'
-              class='icon et_pb_with_border'
-              title='Follow on Facebook'
-               target="_blank"><span
-                class='et_pb_social_media_follow_network_name'
-                aria-hidden='true'
-                >Follow</span></a></li><li
-            class='et_pb_social_media_follow_network_1_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-twitter'><a
-              href='https://twitter.com/spartanaccount1'
-              class='icon et_pb_with_border'
-              title='Follow on X'
-               target="_blank"><span
-                class='et_pb_social_media_follow_network_name'
-                aria-hidden='true'
-                >Follow</span></a></li><li
-            class='et_pb_social_media_follow_network_2_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-linkedin'><a
-              href='https://www.linkedin.com/company/spartanaccounts/'
-              class='icon et_pb_with_border'
-              title='Follow on LinkedIn'
-               target="_blank"><span
-                class='et_pb_social_media_follow_network_name'
-                aria-hidden='true'
-                >Follow</span></a></li><li
-            class='et_pb_social_media_follow_network_3_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-instagram'><a
-              href='https://www.instagram.com/spartanaccounts/'
-              class='icon et_pb_with_border'
-              title='Follow on Instagram'
-               target="_blank"><span
-                class='et_pb_social_media_follow_network_name'
-                aria-hidden='true'
-                >Follow</span></a></li><li
-            class='et_pb_social_media_follow_network_4_tb_footer et_pb_social_icon et_pb_social_network_link  et-social-youtube'><a
-              href='https://www.youtube.com/channel/UCveZbjvCYzlChH5S91dD1UA'
-              class='icon et_pb_with_border'
-              title='Follow on Youtube'
-               target="_blank"><span
-                class='et_pb_social_media_follow_network_name'
-                aria-hidden='true'
-                >Follow</span></a></li>
-			</ul><div class="et_pb_module et_pb_image et_pb_image_1_tb_footer">
-				
-				
-				
-				
-				<a href="https://play.google.com/store/apps/details?id=com.fbrsoftware.invoicing"><span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /><noscript><img decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /></noscript></span></a>
-			</div><div class="et_pb_module et_pb_divider_0_tb_footer et_pb_space et_pb_divider_hidden"><div class="et_pb_divider_internal"></div></div><div class="et_pb_module et_pb_image et_pb_image_2_tb_footer">
-				
-				
-				
-				
-				<a href="https://apps.apple.com/us/app/spartanaccounts: InvoicingApp/id14888"><span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/apple-store.png" alt="" title="apple-store" class="wp-image-148" /><noscript><img decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/apple-store.png" alt="" title="apple-store" class="wp-image-148" /></noscript></span></a>
-			</div>
-			</div>
-				
-				
-				
-				
-			</div>
-				
-				
-			</div><div class="et_pb_section et_pb_section_1_tb_footer et_pb_with_background et_section_regular et_pb_section--with-menu" >
-				
-				
-				
-				
-				
-				
-				<div class="et_pb_row et_pb_row_1_tb_footer et_pb_row--with-menu">
-				<div class="et_pb_column et_pb_column_1_2 et_pb_column_4_tb_footer  et_pb_css_mix_blend_mode_passthrough">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_text et_pb_text_8_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner">Designed &amp; Developed by <a href="http://www.FBRSoftware.com/" target="_blank" rel="noopener">fbrsoftware</a> | <a href="/../terms-and-conditions/">Terms and Conditions</a> | <a href="/../privacy-policy/">Privacy Policy</a> | <a href="/../user-data-deletion-request/">Data Deletion Request</a></div>
-			</div><div class="et_pb_module et_pb_text et_pb_text_9_tb_footer  et_pb_text_align_left et_pb_bg_layout_light">
-				
-				
-				
-				
-				<div class="et_pb_text_inner">Copyright ©2026 Spartan Accounts</div>
-			</div>
-			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_5_tb_footer  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column--with-menu">
-				
-				
-				
-				
-				<div class="et_pb_module et_pb_menu et_pb_menu_0_tb_footer et_pb_bg_layout_dark  et_pb_text_align_left et_dropdown_animation_fade et_pb_menu--without-logo et_pb_menu--style-left_aligned">
-					
-					
-					
-					
-					<div class="et_pb_menu_inner_container clearfix">
-						
-						<div class="et_pb_menu__wrap">
-							<div class="et_pb_menu__menu">
-								<nav class="et-menu-nav"><ul id="menu-footer" class="et-menu nav"><li id="menu-item-211" class="et_pb_menu_page_id-186 menu-item menu-item-type-post_type menu-item-object-page menu-item-211"><a href="/../sales/">Sales</a></li>
-<li id="menu-item-218" class="et_pb_menu_page_id-216 menu-item menu-item-type-post_type menu-item-object-page menu-item-218"><a href="/../purchases/">Purchases</a></li>
-<li id="menu-item-232" class="et_pb_menu_page_id-231 menu-item menu-item-type-post_type menu-item-object-page menu-item-232"><a href="/../accounting/">Accounting</a></li>
-<li id="menu-item-245" class="et_pb_menu_page_id-244 menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="/../inventory/">Inventory</a></li>
-<li id="menu-item-258" class="et_pb_menu_page_id-257 menu-item menu-item-type-post_type menu-item-object-page menu-item-258"><a href="/../manufacturing/">Manufacturing</a></li>
-<li id="menu-item-266" class="et_pb_menu_page_id-265 menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="/../online-pos-fbr-integration/">FBR Integration</a></li>
-<li id="menu-item-283" class="et_pb_menu_page_id-282 menu-item menu-item-type-post_type menu-item-object-page menu-item-283"><a href="/../reporting/">Reporting</a></li>
-<li id="menu-item-291" class="et_pb_menu_page_id-290 menu-item menu-item-type-post_type menu-item-object-page menu-item-291"><a href="/../order-booking-app/">Order Booking App</a></li>
-<li id="menu-item-326" class="et_pb_menu_page_id-325 menu-item menu-item-type-post_type menu-item-object-page menu-item-326"><a href="/../splendid-invoices-app/">Spartan Invoices App</a></li>
-</ul></nav>
-							</div>
-							
-							
-							<div class="et_mobile_nav_menu">
-				<div class="mobile_nav closed">
-					<span class="mobile_menu_bar"></span>
-				</div>
-			</div>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-				
-				
-				
-				
-			</div>
-				
-				
-			</div>		</div>
-`
+const categories = ['All', 'Retail', 'Accounting', 'Wholesale & Distribution']
 ---
 <PageLayout
-  title="Blog - Spartan Accounts"
+  title="Blog - FBR Software | Business Accounting Insights"
   description="Whether you're a small business owner, entrepreneur or accountant, our blog has something for everyone. Our experts provide high-quality content."
   canonical="/blog/"
+  bodyClass="fbr-home"
 >
   <Fragment slot="head">
-    <link rel="stylesheet" href="/css/pages/blog.css" />
-    <link rel="stylesheet" href="/wp-content/litespeed/css/ba8ba75ac91219241600706bf28faab0d696.css" media="all" />
-    <link rel="stylesheet" href="/wp-content/et-cache/237101/et-divi-dynamic-tb-132-2371010ee6.css" media="all" />
-    <link rel="stylesheet" href="/wp-content/et-cache/237101/et-divi-dynamic-tb-132-237101-late0ee6.css" media="all" />
-    <link rel="stylesheet" href="/wp-content/et-cache/237101/et-core-unified-tb-132-deferred-237101.min0ee6.css" media="all" />
+    <link rel="stylesheet" href="/css/pages/__home__-redesign.css" />
+    <style>
+      /* ── Blog page styles ── */
+      .fbr-blog-hero {
+        background: linear-gradient(135deg,#0d1b35 0%,#1a3461 50%,#1565a8 100%);
+        padding: 80px 20px 60px;
+        text-align: center;
+        color: #fff;
+      }
+      .fbr-blog-hero h1 { font-size:clamp(28px,4vw,48px); font-weight:800; margin:0 0 14px; color:#fff !important; }
+      .fbr-blog-hero p  { font-size:17px; color:rgba(255,255,255,.75); max-width:560px; margin:0 auto; }
+
+      /* category filter */
+      .fbr-blog-filters {
+        display: flex; gap:10px; flex-wrap:wrap;
+        justify-content:center;
+        padding: 36px 20px 0;
+        max-width: 1200px; margin: 0 auto;
+      }
+      .fbr-filter-btn {
+        padding: 8px 20px; border-radius: 20px;
+        font-size: 13px; font-weight: 600;
+        border: 2px solid #e0e8f0;
+        background: #fff; color: #5a6a80;
+        cursor: pointer; transition: all .2s;
+      }
+      .fbr-filter-btn:hover,
+      .fbr-filter-btn.active {
+        background: #2ea3f2; border-color: #2ea3f2; color: #fff;
+      }
+
+      /* grid */
+      .fbr-blog-grid-wrap {
+        max-width: 1200px; margin: 0 auto;
+        padding: 36px 20px 60px;
+      }
+      .fbr-blog-grid {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 28px;
+      }
+      .fbr-blog-card {
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(26,43,74,.07);
+        display: flex; flex-direction: column;
+        transition: transform .25s, box-shadow .25s;
+        border: 1px solid #e8edf5;
+      }
+      .fbr-blog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 48px rgba(46,163,242,.15);
+        border-color: #2ea3f2;
+      }
+      .fbr-blog-card-thumb {
+        background: linear-gradient(135deg,#1a3461,#1565a8);
+        height: 140px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 56px;
+      }
+      .fbr-blog-card-body { padding: 22px 24px; flex: 1; display: flex; flex-direction: column; }
+      .fbr-blog-card-meta {
+        display: flex; align-items: center; gap: 10px;
+        margin-bottom: 12px; flex-wrap: wrap;
+      }
+      .fbr-blog-cat {
+        background: #e8f5ff; color: #1a78c2;
+        font-size: 11px; font-weight: 700;
+        padding: 3px 10px; border-radius: 10px;
+        text-decoration: none; text-transform: uppercase; letter-spacing: .05em;
+        transition: background .2s;
+      }
+      .fbr-blog-cat:hover { background: #2ea3f2; color: #fff; }
+      .fbr-blog-date { font-size: 12px; color: #8090a8; }
+      .fbr-blog-card h2 {
+        font-size: 16px; font-weight: 700; color: #1a2b4a;
+        margin: 0 0 10px; line-height: 1.4;
+      }
+      .fbr-blog-card h2 a { text-decoration: none; color: inherit; }
+      .fbr-blog-card h2 a:hover { color: #2ea3f2; }
+      .fbr-blog-excerpt {
+        font-size: 13px; color: #5a6a80; line-height: 1.65;
+        flex: 1; margin-bottom: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .fbr-blog-card-footer {
+        display: flex; align-items: center; justify-content: space-between;
+        border-top: 1px solid #f0f4f8; padding-top: 14px;
+        margin-top: auto;
+      }
+      .fbr-blog-author { font-size: 12px; color: #8090a8; }
+      .fbr-blog-read-more {
+        font-size: 13px; font-weight: 600; color: #2ea3f2;
+        text-decoration: none; display: flex; align-items: center; gap: 4px;
+      }
+      .fbr-blog-read-more:hover { color: #1a78c2; }
+
+      /* pagination */
+      .fbr-blog-pagination {
+        display: flex; justify-content: center; gap: 10px;
+        padding: 0 20px 60px;
+      }
+      .fbr-page-btn {
+        padding: 10px 20px; border-radius: 8px;
+        font-size: 14px; font-weight: 600;
+        background: #fff; color: #1a2b4a;
+        border: 2px solid #e0e8f0;
+        text-decoration: none; transition: all .2s;
+      }
+      .fbr-page-btn:hover, .fbr-page-btn.active {
+        background: #2ea3f2; border-color: #2ea3f2; color: #fff;
+      }
+
+      /* hidden cards */
+      .fbr-blog-card[data-hidden="true"] { display: none; }
+
+      @media(max-width:980px){ .fbr-blog-grid { grid-template-columns: repeat(2,1fr); } }
+      @media(max-width:580px){ .fbr-blog-grid { grid-template-columns: 1fr; } }
+    </style>
   </Fragment>
-  <div set:html={body} />
+
+  <!-- HERO -->
+  <div class="fbr-blog-hero">
+    <span class="fbr-hero-badge">Knowledge Base</span>
+    <h1>FBR Software Blog</h1>
+    <p>Expert insights on accounting, inventory, FBR compliance, and growing your business in Pakistan.</p>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="fbr-blog-filters">
+    {categories.map((cat) => (
+      <button class={`fbr-filter-btn${cat === 'All' ? ' active' : ''}`} data-cat={cat}>
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <!-- BLOG GRID -->
+  <div class="fbr-blog-grid-wrap">
+    <div class="fbr-blog-grid" id="fbr-blog-grid">
+      {posts.map((post) => (
+        <article class="fbr-blog-card" data-category={post.category}>
+          <div class="fbr-blog-card-thumb">{post.icon}</div>
+          <div class="fbr-blog-card-body">
+            <div class="fbr-blog-card-meta">
+              <a href={post.categorySlug} class="fbr-blog-cat">{post.category}</a>
+              <span class="fbr-blog-date">📅 {post.date}</span>
+            </div>
+            <h2><a href={post.slug}>{post.title}</a></h2>
+            <p class="fbr-blog-excerpt">{post.excerpt}</p>
+            <div class="fbr-blog-card-footer">
+              <span class="fbr-blog-author">✍️ {post.author}</span>
+              <a href={post.slug} class="fbr-blog-read-more">Read More →</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="fbr-blog-pagination">
+    <span class="fbr-page-btn active">1</span>
+    <a href="/blog/page/2/" class="fbr-page-btn">2</a>
+    <a href="/blog/page/2/" class="fbr-page-btn">Older →</a>
+  </div>
+
+  <!-- Filter Script -->
+  <script is:inline>
+    var btns = document.querySelectorAll('.fbr-filter-btn');
+    var cards = document.querySelectorAll('.fbr-blog-card');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cat = this.dataset.cat;
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        this.classList.add('active');
+        cards.forEach(function(card) {
+          if (cat === 'All' || card.dataset.category === cat) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </PageLayout>

@@ -1,143 +1,233 @@
 <style>
+/* ── Overlay ── */
 .sp-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(10,20,40,0.65);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 999999;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
+
+/* ── Box ── */
 .sp-box {
   position: relative;
-  width: 360px;
+  width: 380px;
   border-radius: 20px;
   overflow: hidden;
-  animation: floatBox 6s ease-in-out infinite;
+  background: #fff;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.30);
+  animation: sp-rise 0.35s cubic-bezier(.22,.61,.36,1) both;
 }
-.sp-box::before {
-  content: "";
-  position: absolute;
-  inset: -60%;
-  background: linear-gradient(120deg,#4fa8d6,#00c853,#2e7cc2,#00a74f,#4fa8d6);
-  opacity: 0.35;
-  filter: blur(80px);
-  animation: waveMove 14s linear infinite;
-  z-index: 0;
+@keyframes sp-rise {
+  from { opacity:0; transform: translateY(28px) scale(.97); }
+  to   { opacity:1; transform: translateY(0)   scale(1);    }
 }
-.sp-box::after {
-  content: "";
+
+/* ── Header band ── */
+.sp-header {
+  background: linear-gradient(135deg, #0d1b35 0%, #1a3461 55%, #1565a8 100%);
+  padding: 26px 24px 20px;
+  position: relative;
+}
+.sp-header::after {
+  content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 10%, rgba(255,255,255,0.4), transparent 40%);
-  z-index: 1;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(46,163,242,.22) 0%, transparent 70%);
+  top: -60px; right: -60px;
   pointer-events: none;
 }
-.sp-content {
-  position: relative;
-  z-index: 2;
-  padding: 26px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.78);
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.7);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.15), inset 0 1px 1px rgba(255,255,255,0.9);
-}
-@keyframes floatBox {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
-}
-@keyframes waveMove {
-  0%   { transform: translateX(0) rotate(0deg); }
-  50%  { transform: translateX(40px) rotate(180deg); }
-  100% { transform: translateX(0) rotate(360deg); }
-}
+
+/* close btn */
 .sp-close {
   position: absolute;
-  top: 10px; right: 15px;
-  background: none; border: none;
-  font-size: 22px; color: #111827;
-  cursor: pointer; z-index: 3;
-}
-.sp-avatars { margin-bottom: 10px; }
-.sp-avatars img {
-  width: 45px;
+  top: 12px; right: 14px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  width: 28px; height: 28px;
   border-radius: 50%;
-  margin: 0 -5px;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  font-size: 18px; line-height: 1;
+  color: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+  z-index: 3;
 }
-.sp-content h2 { font-size: 22px; margin-top: 10px; color: #111827; }
-.sp-content p  { font-size: 13px; margin-top: 6px; color: #4b5563; line-height: 1.5; }
-.sp-actions {
-  margin-top: 18px;
+.sp-close:hover { background: rgba(255,255,255,0.25); }
+
+/* avatar stack */
+.sp-avatars {
   display: flex;
-  justify-content: center;
+  margin-bottom: 14px;
+}
+.sp-avatars img {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid rgba(255,255,255,0.6);
+  margin-right: -10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+.sp-avatars img:last-child { margin-right: 0; }
+
+/* online badge */
+.sp-online {
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 6px;
+  background: rgba(37,211,102,0.18);
+  border: 1px solid rgba(37,211,102,0.4);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4dffa0;
+  margin-bottom: 10px;
+  letter-spacing: .04em;
+}
+.sp-online-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #25D366;
+  animation: sp-pulse 1.8s infinite;
+  flex-shrink: 0;
+}
+@keyframes sp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+  70%  { box-shadow: 0 0 0 5px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.sp-header h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.sp-header-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Body ── */
+.sp-body {
+  padding: 20px 24px 24px;
+  background: #fff;
+}
+
+/* chat bubble */
+.sp-bubble {
+  background: #f0f7ff;
+  border: 1px solid #d0e8ff;
+  border-radius: 0 14px 14px 14px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #1a2b4a;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  position: relative;
+}
+.sp-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -8px;
+  border-width: 0 8px 8px 0;
+  border-style: solid;
+  border-color: transparent #d0e8ff transparent transparent;
+}
+
+/* quick options */
+.sp-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.sp-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f7faff;
+  border: 1.5px solid #e0eaf5;
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a2b4a;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s;
+}
+.sp-option:hover {
+  background: #e8f5ff;
+  border-color: #2ea3f2;
+  color: #1a78c2;
+  transform: translateX(3px);
+}
+.sp-option-icon { font-size: 16px; flex-shrink: 0; }
+
+/* CTA row */
+.sp-actions {
+  display: flex;
   gap: 10px;
 }
-/* Primary CTA: use <a> only (not <button><a>) so Divi/theme link rules do not flatten styles */
-.sp-actions .sp-btn-primary {
-  box-sizing: border-box;
+.sp-btn-primary {
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 118px;
-  padding: 10px 20px;
+  gap: 7px;
+  padding: 12px 18px;
   border: none;
-  border-radius: 999px;
-  font-family: inherit;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #25D366, #1da851);
+  color: #fff !important;
   font-size: 14px;
-  font-weight: 600;
-  line-height: 1.25;
-  text-align: center;
+  font-weight: 700;
   text-decoration: none !important;
   cursor: pointer;
-  -webkit-appearance: none;
-  appearance: none;
-  color: #fff !important;
-  background: linear-gradient(180deg, #3b82f6, #2563eb);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.42);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  transition: all .2s;
 }
-.sp-actions .sp-btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.5);
-  filter: brightness(1.03);
+.sp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37,211,102,0.45);
   color: #fff !important;
 }
 .sp-btn-secondary {
-  box-sizing: border-box;
-  min-width: 118px;
-  padding: 10px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 999px;
-  background: #ffffff;
-  color: #111827 !important;
-  font-family: inherit;
-  font-size: 14px;
+  padding: 12px 18px;
+  border: 1.5px solid #e0eaf5;
+  border-radius: 10px;
+  background: #fff;
+  color: #5a6a80;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 1.25;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: all .2s;
+  white-space: nowrap;
 }
 .sp-btn-secondary:hover {
-  background: #f3f4f6;
-  transform: translateY(-1px);
+  background: #f7faff;
+  border-color: #c0d0e0;
+  color: #1a2b4a;
 }
-@media (max-width: 480px) {
-  .sp-box { width: 90vw; }
+
+@media (max-width: 440px) {
+  .sp-box { width: 92vw; }
 }
 </style>
 
-<!-- Divi sets strong global `a` rules; pin popup CTA so it always matches design -->
+<!-- Global override so Divi/theme anchor rules don't kill button colours -->
 <style is:global>
-  #splendid-popup a.sp-btn-primary {
-    color: #fff !important;
-    text-decoration: none !important;
-  }
+  #splendid-popup a.sp-btn-primary,
   #splendid-popup a.sp-btn-primary:hover,
   #splendid-popup a.sp-btn-primary:focus {
     color: #fff !important;
@@ -147,24 +237,54 @@
 
 <div id="splendid-popup" class="sp-overlay">
   <div class="sp-box">
-    <div class="sp-content">
+
+    <!-- Header -->
+    <div class="sp-header">
       <button class="sp-close" onclick="closeSplendidPopup()">×</button>
       <div class="sp-avatars">
-        <img src="/wp-content/uploads/2026/04/qadris-1.jpg" alt="" loading="lazy" />
-        <img src="/wp-content/uploads/2026/05/usama-1.jpg" alt="" loading="lazy" />
-        <img src="/wp-content/uploads/2026/04/zahids.jpg" alt="" loading="lazy" />
+        <img src="/wp-content/uploads/2026/04/qadris-1.jpeg" alt="" loading="lazy" />
+        <img src="/wp-content/uploads/2026/05/usama-1.jpg"   alt="" loading="lazy" />
+        <img src="/wp-content/uploads/2026/04/zahids.jpeg"   alt="" loading="lazy" />
       </div>
-      <h2>Need help?</h2>
-      <p>We've seen that businesses like yours often need guidance choosing the right ERP. Our consultants can help you find the perfect solution.</p>
+      <div class="sp-online">
+        <span class="sp-online-dot"></span>
+        Team Online · 24/7
+      </div>
+      <h2>Need help choosing<br>the right plan? 🤝</h2>
+      <p class="sp-header-sub">Our consultants are ready to guide you.</p>
+    </div>
+
+    <!-- Body -->
+    <div class="sp-body">
+      <div class="sp-bubble">
+        👋 Hi! We've helped <strong>5,000+</strong> businesses set up FBR Software. Tell us what you need:
+      </div>
+
+      <div class="sp-options">
+        <a href="https://wa.me/923325008992?text=Hi%2C%20I%20want%20to%20get%20a%20demo" target="_blank" rel="noopener" class="sp-option">
+          <span class="sp-option-icon">🎯</span> Request a free demo
+        </a>
+        <a href="https://wa.me/923325008992?text=Hi%2C%20I%20want%20to%20check%20pricing" target="_blank" rel="noopener" class="sp-option">
+          <span class="sp-option-icon">💰</span> See pricing &amp; plans
+        </a>
+        <a href="https://wa.me/923325008992?text=Hi%2C%20I%20need%20technical%20support" target="_blank" rel="noopener" class="sp-option">
+          <span class="sp-option-icon">🛠️</span> Get technical support
+        </a>
+      </div>
+
       <div class="sp-actions">
         <a
-          href="https://wa.me/923325008992?text=Hello%2C%20I%20need%20assistance%20with%20ERP"
+          href="https://wa.me/923325008992?text=Hello%2C%20I%20need%20assistance%20with%20FBR%20Software"
           target="_blank"
           rel="noopener noreferrer"
-          class="sp-btn-primary">Let's chat</a>
+          class="sp-btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
         <button type="button" class="sp-btn-secondary" onclick="closeSplendidPopup()">Not now</button>
       </div>
     </div>
+
   </div>
 </div>
 
