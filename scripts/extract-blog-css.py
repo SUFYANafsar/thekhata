@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import re, os
 
-MIRROR = '/Users/macbookpro14m1pro/Desktop/splendidaccounts/SpartanTech.org'
+MIRROR = '/Users/macbookpro14m1pro/Desktop/spartanaccounts/SpartanTech.org'
 OUT_DIR = '/Users/macbookpro14m1pro/Desktop/splendid-astro/public/css/pages'
 STYLE_IDS = ['et-critical-inline-css','divi-style-inline-inline-css','divi-dynamic-critical-inline-css','minerva-kb/css-inline-css','global-styles-inline-css']
 

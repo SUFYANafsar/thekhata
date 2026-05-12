@@ -7,7 +7,7 @@ import os
 import re
 import sys
 
-SOURCE = "/Users/macbookpro14m1pro/Desktop/splendidaccounts/SpartanTech.org"
+SOURCE = "/Users/macbookpro14m1pro/Desktop/spartanaccounts/SpartanTech.org"
 DEST   = "/Users/macbookpro14m1pro/Desktop/splendid-astro/src/pages"
 
 # All WP "page" type slugs — skip homepage (index.astro done), blog (done), accounting (done)
@@ -66,7 +66,7 @@ def extract_meta(html: str) -> dict:
         og_image = re.search(r'content="([^"]*)"\s+property="og:image"', html)
     og_image = og_image.group(1).strip() if og_image else ""
     # normalise image path
-    og_image = re.sub(r'^https?://splendidaccounts\.pk', '', og_image)
+    og_image = re.sub(r'^https?://spartanaccounts\.pk', '', og_image)
     og_image = re.sub(r'^\.\./wp-content/', '/wp-content/', og_image)
     if og_image and not og_image.startswith('/'):
         og_image = '/' + og_image
