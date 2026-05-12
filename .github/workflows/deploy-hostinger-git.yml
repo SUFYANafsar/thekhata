@@ -1,0 +1,41 @@
+# Build Astro + Pagefind, then push ONLY ./dist to branch `deploy`.
+# Point Hostinger “Git” deploy at this repo + branch `deploy` + empty public_html (or subfolder).
+name: Deploy static site (dist → deploy branch)
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger-git
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.12'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Astro → dist + Pagefind)
+        run: npm run build
+
+      - name: Push dist/ to branch “deploy” (for Hostinger Git pull)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: deploy
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
