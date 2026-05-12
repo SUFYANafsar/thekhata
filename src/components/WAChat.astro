@@ -1,0 +1,226 @@
+<style>
+.avatar-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 0px;
+  margin-right: 4px;
+}
+.hero-av {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 2px solid white;
+	margin-right: -8px;
+	flex-shrink: 0;
+}
+.hero-av img { width: 100%; height: 100%; object-fit: cover; }
+
+#sa-wa-btn {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  background: rgba(255,255,255,0.18) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1.5px solid rgba(37,211,102,0.6) !important;
+  border-radius: 50px !important;
+  padding: 10px 16px !important;
+  cursor: pointer !important;
+  z-index: 999999 !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4) !important;
+  transition: all 0.25s ease !important;
+}
+#sa-wa-btn:hover { transform: scale(1.05) !important; }
+#sa-wa-btn .sa-btn-label {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #111 !important;
+  white-space: nowrap !important;
+}
+
+#sa-wa-popup {
+  position: fixed !important;
+  bottom: 90px !important;
+  right: 24px !important;
+  width: 340px !important;
+  background: #fff !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2) !important;
+  overflow: visible !important;
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s, transform 0.3s !important;
+  z-index: 999998 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+#sa-wa-popup.sa-open {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: all !important;
+}
+#sa-wa-inner { border-radius: 16px !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; }
+
+#sa-wa-header {
+  background: #0B3A82 !important;
+  padding: 14px 14px 12px !important;
+  color: white !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+#sa-wa-header * { color: #ffffff !important; }
+
+.sa-close-btn {
+  position: absolute !important;
+  top: 10px !important; right: 10px !important;
+  background: rgba(255,255,255,0.15) !important;
+  border: none !important;
+  width: 24px !important; height: 24px !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  font-size: 16px !important;
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  padding: 0 !important;
+  transition: background 0.2s !important;
+}
+.sa-close-btn:hover { background: rgba(255,255,255,0.3) !important; }
+
+.sa-brand-row { display: flex !important; align-items: center !important; gap: 10px !important; margin-bottom: 10px !important; }
+.sa-brand-logo-wrap { position: relative !important; flex-shrink: 0 !important; width: 38px !important; height: 38px !important; }
+.sa-online-dot {
+  position: absolute !important;
+  bottom: 1px !important; right: 1px !important;
+  width: 10px !important; height: 10px !important;
+  background: #25D366 !important;
+  border-radius: 50% !important;
+  border: 2px solid #0B3A82 !important;
+  z-index: 2 !important;
+  animation: sa-pulse 1.8s infinite !important;
+}
+@keyframes sa-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+  70%  { box-shadow: 0 0 0 5px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.sa-brand-logo { width: 38px !important; height: 38px !important; border-radius: 50% !important; background: #fff !important; display: flex !important; align-items: center !important; justify-content: center !important; overflow: hidden !important; }
+.sa-brand-logo img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+.sa-brand-text span.sa-brand-name { display: block !important; font-size: 14px !important; font-weight: 600 !important; color: #ffffff !important; margin: 0 0 2px !important; }
+.sa-brand-text span.sa-brand-sub { display: block !important; font-size: 11px !important; color: rgba(255,255,255,0.85) !important; }
+span.sa-header-title { display: block !important; font-size: 16px !important; font-weight: 700 !important; color: #ffffff !important; margin: 0 0 4px !important; }
+span.sa-header-sub { display: block !important; font-size: 12px !important; color: rgba(255,255,255,0.88) !important; }
+
+#sa-wa-body { background: #f9fafb !important; padding: 12px 12px 8px !important; display: flex !important; flex-direction: column !important; gap: 7px !important; }
+.sa-msg { background: #fff !important; padding: 10px 12px !important; border-radius: 12px !important; font-size: 13px !important; color: #222 !important; box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important; line-height: 1.5 !important; }
+.sa-option-btn {
+  background: #f3f4f6 !important;
+  border: 1px solid #e5e7eb !important;
+  padding: 9px 12px !important;
+  border-radius: 10px !important;
+  font-size: 13px !important;
+  color: #222 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  width: 100% !important;
+  display: block !important;
+  transition: background 0.2s, color 0.2s !important;
+  line-height: 1.4 !important;
+}
+.sa-option-btn:hover { background: #25D366 !important; color: #fff !important; border-color: #25D366 !important; }
+
+#sa-wa-cta { background: #f9fafb !important; padding: 4px 12px 14px !important; }
+#sa-wa-cta button {
+  width: 100% !important;
+  background: #25D366 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  display: flex !important; align-items: center !important; justify-content: center !important; gap: 6px !important;
+  transition: background 0.2s !important;
+}
+#sa-wa-cta button:hover { background: #1da851 !important; }
+</style>
+
+<!-- Floating WhatsApp button -->
+<div id="sa-wa-btn">
+  <div class="avatar-row">
+    <div class="hero-av"><img src="/wp-content/uploads/2026/04/qadris-1.jpeg" alt="" loading="lazy" /></div>
+    <div class="hero-av"><img src="/wp-content/uploads/2026/04/areeba-1.png" alt="" loading="lazy" /></div>
+    <div class="hero-av"><img src="/wp-content/uploads/2026/04/zahids.jpeg" alt="" loading="lazy" /></div>
+  </div>
+  <span class="sa-btn-label">Need Help?</span>
+</div>
+
+<!-- Popup -->
+<div id="sa-wa-popup">
+  <div id="sa-wa-inner">
+    <div id="sa-wa-header">
+      <button class="sa-close-btn" id="sa-close-btn">×</button>
+      <div class="sa-brand-row">
+        <div class="sa-brand-logo-wrap">
+          <div class="sa-brand-logo">
+            <img src="/wp-content/uploads/2026/04/splendid-social-preview.png" alt="Splendid Accounts" />
+          </div>
+          <span class="sa-online-dot"></span>
+        </div>
+        <div class="sa-brand-text">
+          <span class="sa-brand-name">Splendid Accounts</span>
+          <span class="sa-brand-sub">AI Assistant · 24/7</span>
+        </div>
+      </div>
+      <span class="sa-header-title">Have a Question?</span>
+      <span class="sa-header-sub">Chat with us instantly on WhatsApp</span>
+    </div>
+
+    <div id="sa-wa-body">
+      <div class="sa-msg">
+        👋 Welcome to <strong>Splendid Accounts</strong>, how can we help you today?
+      </div>
+      <button class="sa-option-btn" onclick="saSendWA('Hi, I want to get a demo')">Request for demo</button>
+      <button class="sa-option-btn" onclick="saSendWA('Hi, I want to check pricing for my business')">See pricing and plans</button>
+      <button class="sa-option-btn" onclick="saSendWA('Hi, I need help/support')">Get technical support</button>
+      <button class="sa-option-btn" onclick="saSendWA('Hi, I want to explore modules and features')">Explore modules and features</button>
+    </div>
+
+    <div id="sa-wa-cta">
+      <button onclick="saSendWA('Hi, I want more details')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Continue on WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(function () {
+  var btn   = document.getElementById('sa-wa-btn');
+  var popup = document.getElementById('sa-wa-popup');
+  var close = document.getElementById('sa-close-btn');
+
+  function openPopup()  { popup.classList.add('sa-open'); }
+  function closePopup() { popup.classList.remove('sa-open'); }
+  function togglePopup(){ popup.classList.toggle('sa-open'); }
+
+  btn.addEventListener('click', togglePopup);
+  close.addEventListener('click', function(e){ e.stopPropagation(); closePopup(); });
+
+  document.addEventListener('click', function(e){
+    if (!popup.contains(e.target) && !btn.contains(e.target)) closePopup();
+  });
+
+  window.saSendWA = function(msg){
+    window.open('https://wa.me/923111006555?text=' + encodeURIComponent(msg), '_blank');
+  };
+
+  setTimeout(openPopup, 1500);
+})();
+</script>

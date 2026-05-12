@@ -1,0 +1,175 @@
+---
+import WAChat from '../components/WAChat.astro'
+import SplendidPopup from '../components/SplendidPopup.astro'
+interface Props {
+  title: string
+  description: string
+  canonical?: string
+  ogType?: 'website' | 'article'
+  ogImage?: string
+  articlePublished?: string
+  articleModified?: string
+  schemaJson?: string
+  bodyClass?: string
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogType = 'website',
+  ogImage = '/wp-content/uploads/2022/01/splendid-accounts-logo.png',
+  articlePublished,
+  articleModified,
+  schemaJson,
+  bodyClass = '',
+} = Astro.props
+
+const canonicalUrl = canonical
+  ? `https://splendidaccounts.pk${canonical}`
+  : `https://splendidaccounts.pk${Astro.url.pathname}`
+---
+
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="Splendid Accounts" />
+  <meta property="og:image" content={`https://splendidaccounts.pk${ogImage}`} />
+  {articlePublished && <meta property="article:published_time" content={articlePublished} />}
+  {articleModified && <meta property="article:modified_time" content={articleModified} />}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@splendidaccoun1" />
+
+  <!-- Schema JSON-LD -->
+  {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" />
+
+  <!-- Divi / LiteSpeed CSS bundles (paths unchanged from source) -->
+  <link rel="stylesheet" href="/wp-content/litespeed/css/7a011636439558ba9580cc64db04deaa8dae.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/c18ea31df49223d5de247c0df500f6ec5c06.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/b9d9d9a406aa6f47c9a27e8a3c6d5a1a2d9f.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/9cff59040e2374359419b03ca33c005fce37.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/6152c48625030a20b23c0bb1cf43646ff9f3.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/4778229086aebe11410db0bab4d6792f1ce1.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/99c1041cf447716b7d5423acba940749055f.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/0145b8cfed2ed379eac432b3fb16aeeb4873.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/litespeed/css/379c645cf787dbec6000c2fd8090ded710b7.css" media="all" />
+
+  <!-- Divi core + page TB-132 (post 11): WP inlined these + et-cache; LiteSpeed bundles alone are not enough for layout -->
+  <link rel="stylesheet" href="/wp-content/et-cache/11/divi-wp-critical-combined.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/et-cache/11/et-divi-dynamic-tb-132-113705.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/et-cache/11/et-divi-dynamic-tb-132-11-late3705.css" media="all" />
+  <link rel="stylesheet" href="/wp-content/et-cache/11/et-core-unified-tb-132-deferred-11.min0fe6.css" media="all" />
+
+  <!-- Google Tag Manager -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=UA-38116496-9"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-38116496-9');
+    gtag('config', 'AW-869196053');
+  </script>
+
+  <!-- jQuery loaded in <head> so inline Divi scripts in the body can call it -->
+  <script is:inline src="/wp-includes/js/jquery/jquery.minf43b.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/76eb09d2354632ba6185dc7095b9e22f1a37.js"></script>
+  <!-- Restore $ alias — WP jQuery runs noConflict() which removes $, but page scripts expect it -->
+  <script is:inline>window.$ = window.jQuery;</script>
+
+  <slot name="head" />
+</head>
+
+<body class={`wp-singular et_pb_button_helper_class et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_divi_theme et-db et-tb-has-template et-tb-has-footer mkb-desktop ${bodyClass}`}>
+  <script is:inline>
+    if (location.protocol === 'file:') {
+      console.warn(
+        '[Splendid Astro] file:// breaks root-relative URLs (/wp-content/, /wp-includes/). After build, use npm run preview or npx serve dist — do not open dist/index.html directly.'
+      )
+    }
+  </script>
+  <script is:inline>
+    // #region agent log
+    queueMicrotask(function () {
+      var hrefs = []
+      document.querySelectorAll('link[rel="stylesheet"]').forEach(function (l) {
+        hrefs.push(l.getAttribute('href') || '')
+      })
+      var et = hrefs.filter(function (h) {
+        return h.indexOf('et-cache/11') !== -1
+      })
+      var crit = hrefs.some(function (h) {
+        return h.indexOf('divi-wp-critical-combined') !== -1
+      })
+      fetch('http://127.0.0.1:7402/ingest/ad11af42-c7d7-4139-b524-ff8682f58045', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': 'a2c0d5' },
+        body: JSON.stringify({
+          sessionId: 'a2c0d5',
+          hypothesisId: 'H1',
+          location: 'BaseLayout.astro:body',
+          message: 'stylesheet hrefs after parse',
+          data: { total: hrefs.length, etCache11: et.length, hasCritical: crit, etSample: et.slice(0, 6) },
+          timestamp: Date.now(),
+        }),
+      }).catch(function () {})
+    })
+    // #endregion
+  </script>
+
+  <div id="page-container">
+    <div id="et-boc" class="et-boc">
+      <slot />
+    </div>
+  </div>
+
+  <!-- WP/Divi/Minerva globals normally injected by PHP wp_localize_script -->
+  <script is:inline>
+    var diviTorqueLiteFrontend={"ajaxurl":"#"};
+    var DIVI={"item_count":"%d Item","items_count":"%d Items"};
+    var et_builder_utils_params={"condition":{"diviTheme":true,"extraTheme":false},"scrollLocations":["app","top"],"builderScrollLocations":{"desktop":"app","tablet":"app","phone":"app"},"onloadScrollLocation":"app","builderType":"fe"};
+    var et_frontend_scripts={"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+    var et_pb_custom={"ajaxurl":"#","images_uri":"/wp-content/themes/Divi/images","builder_images_uri":"/wp-content/themes/Divi/includes/builder/images","et_frontend_nonce":"de07a8e6c7","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"8e58503bf7","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","wrong_checkbox":"Checkbox","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"11","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"no","is_shortcode_tracking":"","tinymce_uri":"/wp-content/themes/Divi/includes/builder/frontend-builder/assets/vendors","accent_color":"#2ea3f2","waypoints_options":[]};
+    var et_pb_box_shadow_elements=[];
+    var et_pb_sticky_elements=[];
+    var MinervaKB={"ajaxUrl":"#","siteUrl":"/","platform":"desktop","info":{"isPost":false,"isPage":true,"isSingle":false,"isTicket":false,"isSupportClient":false,"isTicketAuthorView":false,"userCanAttachFiles":false,"isRTL":false,"postId":11},"nonce":{"nonce":"fa2718e4f1","nonceKey":"minerva_kb_ajax_nonce"},"settings":{"show_like_message":false,"show_dislike_message":false,"enable_feedback":false,"single_template":"plugin","feedback_mode":"dislike","feedback_email_on":false,"track_search_with_results":false,"ga_good_search_category":"Knowledge Base","ga_good_search_action":"Search success","ga_good_search_value":"","track_search_without_results":false,"ga_bad_search_category":"Knowledge Base","ga_bad_search_action":"Search fail","ga_bad_search_value":"","track_article_likes":false,"ga_like_category":"Knowledge Base","ga_like_action":"Article like","ga_like_label":"article_id","ga_like_value":"","track_article_dislikes":false,"ga_dislike_category":"Knowledge Base","ga_dislike_action":"Article dislike","ga_dislike_label":"article_id","ga_dislike_value":"","track_article_feedback":false,"ga_feedback_category":"Knowledge Base","ga_feedback_action":"Article feedback","ga_feedback_label":"article_id","ga_feedback_value":"","search_delay":"1000","live_search_show_excerpt":false,"active_search_groups":["kb"],"live_search_use_post":false,"show_back_to_top":true,"scrollspy_switch":true,"toc_in_content_disable":true,"global_scroll_offset":{"unit":"px","size":"30"},"article_fancybox":true,"article_sidebar":"right","article_sidebar_sticky":true,"article_sidebar_sticky_top":{"unit":"em","size":"3"},"article_sidebar_sticky_min_width":{"unit":"px","size":"1025"},"back_to_top_position":"inline","back_to_top_text":"To top","show_back_to_top_icon":true,"back_to_top_icon":"fa-long-arrow-up","back_to_site_top":true,"toc_scroll_offset":{"unit":"px","size":"0"},"search_mode":"nonblocking","search_needle_length":"3","search_request_fe_cache":true,"live_search_disable_mobile":false,"live_search_disable_tablet":false,"live_search_disable_desktop":false,"live_search_prevent_submit":false,"faq_filter_open_single":false,"faq_slow_animation":false,"faq_toggle_mode":false,"faq_enable_pages":false,"content_tree_widget_open_active_branch":true,"toc_url_update":true,"faq_url_update":false,"faq_scroll_offset":{"unit":"px","size":"0"},"toc_headings_exclude":"h1","antispam_failed_message":"Wrong security question answer, try again.","submit_success_message":"Your content has been submitted, thank you!","submit_content_editor_skin":"snow","fh_show_delay":"3000","fh_display_mode":"auto","glossary_mobile_mode":"popup","glossary_loader_icon":"fa-circle-o-notch","glossary_enable_pages":false,"glossary_scroll_offset":{"unit":"px","size":"0"},"glossary_highlight_limit":"0","glossary_highlight_post_types":["kb"],"glossary_highlight_exclude_ids":[""],"tickets_create_use_standalone_upload_button":true},"i18n":{"no-results":"No results","results":"results","result":"result","questions":"questions","question":"question","search_group_kb":"Knowledge Base","search_group_kb_topics":"Topics","search_group_faq":"FAQ","search_group_glossary":"Glossary","like_message_text":"<i class=\"fa fa-smile-o\"></i> Great!<br /><strong>Thank you<\/strong> for your vote!","dislike_message_text":"Thank you for your vote!","feedback_label":"You can leave feedback:","feedback_email_label":"Your email (optional):","feedback_submit_label":"Send feedback","feedback_submit_request_label":"Sending...","feedback_info_text":"We will use your feedback to improve this article","feedback_sent_text":"Thank you for your feedback, we will do our best to fix this soon","submission_empty_title":"Title must not be empty","submission_empty_content":"Content must not be empty","form_error_general_text":"Some error has happened","ticket_create_error_empty_message_text":"Ticket message must not be empty","ticket_create_success_message_heading_text":"Your ticket has been created successfully!","ticket_create_success_email_sent_text":"Email has been sent to your email address.","ticket_create_success_email_not_sent_text":"Email has not been sent due to errors.","ticket_create_success_link_message_text":"Please, copy the link below to be able to access your ticket later.","ticket_credentials_saved_text":"Your credentials have been saved.","ticket_credentials_deleted_text":"Your credentials have been deleted.","ticket_credentials_error_empty_text":"Credentials must not be empty.","ticket_reply_error_empty_text":"Reply must not be empty.","ticket_reply_field_placeholder_text":"Write your reply here...","ticket_reply_success_message_text":"Your reply was saved, reloading page.","ticket_reply_error_files_not_added_text":"Some file(s) were not attached due to errors.","ticket_reopen_success_message_text":"Ticket has been reopened, reloading","recaptcha_user_message":"You must pass ReCaptcha to proceed","feature_request_submit_success_message":"Thank you, your feature request was submitted and will be published after moderation"},"glossary":[]};
+  </script>
+
+  <!-- Divi + plugin JS bundles -->
+  <script is:inline src="/wp-content/litespeed/js/d93cfa6262cca6d96c55324d6a1e92717acb.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/f9f48155098b4d4d9aeb9f8680ff79ea46b4.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/445a81ab970b23f872e9cfc04eb9120147f4.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/9b5927c60e224e418d866ef0eba627af9379.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/69364b53fb0612d654bd64b3aae650d5bf49.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/8277c289c72462709c48c5854287cbaf59a3.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/8b7863026481c136416f83da75bef143b2d7.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/552e8d34c7e45f41dac466191895745f7c31.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/fa6f8fa8355af41f34ef04b815cd2a96217b.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/9e43e0045394eedfc27edf01d70b8d3a85f8.js"></script>
+  <script is:inline src="/wp-content/litespeed/js/f8b43c38d6dbbf1b1ca65e3f6db70298c3e0.js"></script>
+
+  <slot name="scripts" />
+  <WAChat />
+  <SplendidPopup />
+</body>
+</html>

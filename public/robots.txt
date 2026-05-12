@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /feed/
+Disallow: /comments/
+Disallow: /author/
+Disallow: /category/
+Disallow: /tag/
+
+Sitemap: https://splendidaccounts.pk/sitemap-index.xml

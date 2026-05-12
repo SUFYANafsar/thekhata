@@ -1,0 +1,26 @@
+---
+import { getCollection, render } from 'astro:content'
+import KBLayout from '../../layouts/KBLayout.astro'
+
+export async function getStaticPaths() {
+  const articles = await getCollection('kb')
+  return articles.map((article) => ({
+    params: { slug: article.data.slug },
+    props: { article },
+  }))
+}
+
+const { article } = Astro.props
+const { Content } = await render(article)
+---
+
+<KBLayout
+  title={article.data.title}
+  description={article.data.description}
+  canonical={article.data.canonical}
+  ogImage={article.data.ogImage}
+  modified={article.data.modified}
+  schemaJson={article.data.schemaJson}
+>
+  <Content />
+</KBLayout>

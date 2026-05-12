@@ -1,0 +1,30 @@
+Options -Indexes
+RewriteEngine On
+
+# Author pages → blog
+RewriteRule ^author/(.*)$ /blog/ [R=301,L]
+
+# Category pages → blog
+RewriteRule ^category/(.*)$ /blog/ [R=301,L]
+
+# Tag pages → blog
+RewriteRule ^tag/(.*)$ /blog/ [R=301,L]
+
+# Dead WordPress endpoints
+RewriteRule ^xmlrpc\.php$ - [R=410,L]
+RewriteRule ^wp-json/(.*)$ - [R=410,L]
+RewriteRule ^feed/?$ - [R=410,L]
+RewriteRule ^comments/feed/?$ - [R=410,L]
+
+# HTTrack redirect stubs → canonical destinations
+RewriteRule ^accounting-software-pricing-plan/?$ /pricing-plan/ [R=301,L]
+RewriteRule ^garments-fashion-software/?$ /garment-shop-software/ [R=301,L]
+RewriteRule ^online-accounting-software/?$ /accounting/ [R=301,L]
+
+# Mirror artifact HTML files (index4a3b.html etc)
+RewriteRule ^index[a-f0-9]{4}(\.html)?$ / [R=301,L]
+
+# Ensure trailing slash for clean routes (skip files with extensions)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
