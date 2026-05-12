@@ -1,0 +1,30 @@
+.et-video-placeholder-wrap {
+  background: linear-gradient(145deg, #1a2f4a 0%, #2ea3f2 100%);
+  border-radius: 4px;
+  width: 100%;
+  margin: 0 auto;
+}
+.et-video-placeholder-inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  color: #fff;
+}
+.et-video-placeholder-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.et-video-placeholder-sub {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  opacity: 0.92;
+  max-width: 42em;
+}
