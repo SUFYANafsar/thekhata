@@ -7,4 +7,4 @@ Disallow: /author/
 Disallow: /category/
 Disallow: /tag/
 
-Sitemap: https://splendidaccounts.pk/sitemap-index.xml
+Sitemap: https://SpartanTech.org/sitemap-index.xml

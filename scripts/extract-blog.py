@@ -8,7 +8,7 @@ import os
 import re
 import sys
 
-SOURCE = "/Users/macbookpro14m1pro/Desktop/splendidaccounts/splendidaccounts.pk"
+SOURCE = "/Users/macbookpro14m1pro/Desktop/splendidaccounts/SpartanTech.org"
 DEST   = "/Users/macbookpro14m1pro/Desktop/splendid-astro/src/content/blog"
 
 
@@ -20,8 +20,8 @@ def extract_meta(html: str, slug: str) -> dict:
     title = re.search(r'<title>(.*?)</title>', html)
     title = title.group(1).strip() if title else slug
 
-    # Strip " - Splendid Accounts" suffix from title
-    title = re.sub(r'\s*[-–]\s*Splendid Accounts\s*$', '', title).strip()
+    # Strip " - Spartan Accounts" suffix from title
+    title = re.sub(r'\s*[-–]\s*Spartan Accounts\s*$', '', title).strip()
 
     desc = re.search(r'name="description"\s+content="([^"]*)"', html)
     if not desc:

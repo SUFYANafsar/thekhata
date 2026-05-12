@@ -7,7 +7,7 @@ import os
 import re
 import sys
 
-SOURCE = "/Users/macbookpro14m1pro/Desktop/splendidaccounts/splendidaccounts.pk/kb"
+SOURCE = "/Users/macbookpro14m1pro/Desktop/splendidaccounts/SpartanTech.org/kb"
 DEST   = "/Users/macbookpro14m1pro/Desktop/splendid-astro/src/content/kb"
 
 
@@ -18,12 +18,12 @@ def is_kb_article(html: str) -> bool:
 def extract_meta(html: str, slug: str) -> dict:
     title = re.search(r'<title>(.*?)</title>', html)
     title = title.group(1).strip() if title else slug
-    title = re.sub(r'\s*[-–]\s*Splendid Accounts\s*$', '', title).strip()
+    title = re.sub(r'\s*[-–]\s*Spartan Accounts\s*$', '', title).strip()
 
     desc = re.search(r'name="description"\s+content="([^"]*)"', html)
     if not desc:
         desc = re.search(r'content="([^"]*)"\s+name="description"', html)
-    desc = desc.group(1).strip() if desc else f"Splendid Accounts Knowledge Base: {title}"
+    desc = desc.group(1).strip() if desc else f"Spartan Accounts Knowledge Base: {title}"
 
     og_image = re.search(r'property="og:image"\s+content="([^"]*)"', html)
     if not og_image:

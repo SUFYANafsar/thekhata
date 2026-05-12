@@ -48,7 +48,7 @@ var et_pb_box_shadow_elements = [];
 var et_pb_sticky_elements = [];
 var MinervaKB = {
   ajaxUrl: '#',
-  siteUrl: 'https://splendidaccounts.pk/',
+  siteUrl: 'https://SpartanTech.org/',
   platform: 'desktop',
   info: {
     isPost: false,

@@ -26,8 +26,8 @@ const {
 } = Astro.props
 
 const canonicalUrl = canonical
-  ? `https://splendidaccounts.pk${canonical}`
-  : `https://splendidaccounts.pk${Astro.url.pathname}`
+  ? `https://SpartanTech.org${canonical}`
+  : `https://SpartanTech.org${Astro.url.pathname}`
 ---
 
 <!doctype html>
@@ -47,8 +47,8 @@ const canonicalUrl = canonical
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:site_name" content="Splendid Accounts" />
-  <meta property="og:image" content={`https://splendidaccounts.pk${ogImage}`} />
+  <meta property="og:site_name" content="Spartan Accounts" />
+  <meta property="og:image" content={`https://SpartanTech.org${ogImage}`} />
   {articlePublished && <meta property="article:published_time" content={articlePublished} />}
   {articleModified && <meta property="article:modified_time" content={articleModified} />}
 
