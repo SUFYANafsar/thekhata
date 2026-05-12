@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
+import { videoEmbedHtml } from '../../lib/videoEmbedHtml'
 const body = `<div id="et-main-area">
 	
 <div id="main-content">
@@ -47,7 +48,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="How to use Point of Sale (POS) in Spartan Accounts" width="1080" height="608" src="https://www.youtube.com/embed/ZB3-7OqDmqE?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/ZB3-7OqDmqE?feature=oembed',
+					title: 'How to use Point of Sale (POS) in Spartan Accounts',
+					width: 1080,
+					height: 608,
+				})}
 				<div style="background-image:url(../wp-content/uploads/2022/01/pos-default-new.jpg)" class="et_pb_video_overlay"><div class="et_pb_video_overlay_hover"><a href="#" class="et_pb_video_play"></a></div></div>
 			</div>
 			</div>
@@ -91,7 +97,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="How to use Point of Sale (POS) in Spartan Accounts" width="1080" height="608" src="https://www.youtube.com/embed/ZB3-7OqDmqE?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/ZB3-7OqDmqE?feature=oembed',
+					title: 'How to use Point of Sale (POS) in Spartan Accounts',
+					width: 1080,
+					height: 608,
+				})}
 				<div style="background-image:url(../wp-content/uploads/2022/01/pos-default-new.jpg)" class="et_pb_video_overlay"><div class="et_pb_video_overlay_hover"><a href="#" class="et_pb_video_play"></a></div></div>
 			</div>
 			</div>
@@ -291,7 +302,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="How to use Point of Sale (POS) in Spartan Accounts" width="1080" height="608" src="https://www.youtube.com/embed/ZB3-7OqDmqE?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/ZB3-7OqDmqE?feature=oembed',
+					title: 'How to use Point of Sale (POS) in Spartan Accounts',
+					width: 1080,
+					height: 608,
+				})}
 				
 			</div>
 			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_12  et_pb_css_mix_blend_mode_passthrough et-last-child">

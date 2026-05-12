@@ -74,27 +74,34 @@ const body = `<div id="et-main-area">
 				
 				
 				<h1 class="et_pb_contact_main_title">Contact Form</h1>
-				<div class="et-pb-contact-message"></div>
+				<div class="et-pb-contact-message et-fs-messages" aria-live="polite">
+					<div data-fs-success class="et-fs-msg et-fs-msg--success"></div>
+					<div data-fs-error class="et-fs-msg et-fs-msg--error"></div>
+				</div>
 				
 				<div class="et_pb_contact">
-					<form class="et_pb_contact_form clearfix" method="post" action="https://formspree.io/f/CONTACT_FORM_ID">
+					<form id="contact-form" class="et_pb_contact_form clearfix" method="POST" action="https://formspree.io/f/xrejdzwk">
 						<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-						<input type="hidden" name="_subject" value="New contact form submission">
+						<input type="hidden" name="_subject" value="New contact form submission (website)">
 						<p class="et_pb_contact_field et_pb_contact_field_0 et_pb_contact_field_last" data-id="name" data-type="input">
 				<label for="et_pb_contact_name_0" class="et_pb_contact_form_label">Name</label>
-				<input type="text" id="et_pb_contact_name_0" class="input" name="name" required placeholder="Name">
+				<input type="text" id="et_pb_contact_name_0" class="input" name="name" required placeholder="Name" data-fs-field autocomplete="name">
+				<span data-fs-error="name" class="et-fs-field-error"></span>
 			</p><p class="et_pb_contact_field et_pb_contact_field_1 et_pb_contact_field_last" data-id="email" data-type="email">
 				<label for="et_pb_contact_email_0" class="et_pb_contact_form_label">Email Address</label>
-				<input type="email" id="et_pb_contact_email_0" class="input" name="email" required placeholder="Email Address">
+				<input type="email" id="et_pb_contact_email_0" class="input" name="email" required placeholder="Email Address" data-fs-field autocomplete="email">
+				<span data-fs-error="email" class="et-fs-field-error"></span>
 			</p><p class="et_pb_contact_field et_pb_contact_field_2 et_pb_contact_field_last" data-id="phone" data-type="input">
 				<label for="et_pb_contact_phone_0" class="et_pb_contact_form_label">Phone</label>
-				<input type="tel" id="et_pb_contact_phone_0" class="input" name="phone" placeholder="Phone" pattern="[0-9\s\-]*" title="Only numbers allowed.">
+				<input type="tel" id="et_pb_contact_phone_0" class="input" name="phone" placeholder="Phone" pattern="[0-9\s\-]*" title="Only numbers allowed." data-fs-field autocomplete="tel">
+				<span data-fs-error="phone" class="et-fs-field-error"></span>
 			</p><p class="et_pb_contact_field et_pb_contact_field_3 et_pb_contact_field_last" data-id="message" data-type="text">
 				<label for="et_pb_contact_message_0" class="et_pb_contact_form_label">Message</label>
-				<textarea name="message" id="et_pb_contact_message_0" class="et_pb_contact_message input" required placeholder="Message"></textarea>
+				<textarea name="message" id="et_pb_contact_message_0" class="et_pb_contact_message input" required placeholder="Message" data-fs-field></textarea>
+				<span data-fs-error="message" class="et-fs-field-error"></span>
 			</p>
 						<div class="et_contact_bottom_container">
-							<button type="submit" class="et_pb_contact_submit et_pb_button">Submit</button>
+							<button type="submit" class="et_pb_contact_submit et_pb_button" data-fs-submit-btn>Submit</button>
 						</div>
 					</form>
 				</div>
@@ -133,8 +140,8 @@ const body = `<div id="et-main-area">
 					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon et-pb-icon-circle et-pb-icon-circle-border"></span></span></div>
 					<div class="et_pb_blurb_container">
 						
-						<div class="et_pb_blurb_description"><a href="mailto:suport@spartantech.org">suport@spartantech.org</a><br />
-<a href="mailto:sales@spartantech.org">sales@spartantech.org</a></div>
+						<div class="et_pb_blurb_description"><a href="mailto:suport@FBRSoftware.com">suport@FBRSoftware.com</a><br />
+<a href="mailto:sales@FBRSoftware.com">sales@FBRSoftware.com</a></div>
 					</div>
 				</div>
 			</div><div class="et_pb_with_border et_pb_module et_pb_blurb et_pb_blurb_2  et_pb_text_align_left  et_pb_blurb_position_left et_pb_bg_layout_light">
@@ -186,6 +193,17 @@ const body = `<div id="et-main-area">
     <link rel="stylesheet" href="/wp-content/et-cache/455/et-divi-dynamic-tb-132-455-late0476.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/455/et-divi-dynamic-tb-132-4550476.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/455/et-core-unified-tb-132-deferred-455.mindfeb.css" media="all" />
+  </Fragment>
+  <Fragment slot="scripts">
+    <script is:inline>
+      window.formspree =
+        window.formspree ||
+        function () {
+          (formspree.q = formspree.q || []).push(arguments)
+        }
+      formspree('initForm', { formElement: '#contact-form', formId: 'xrejdzwk' })
+    </script>
+    <script is:inline src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </Fragment>
   <div set:html={body} />
 </PageLayout>

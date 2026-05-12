@@ -17,6 +17,8 @@ interface Props {
    * page-specific Divi rules (same .et_pb_section_* class names on different posts).
    */
   includeEtCache11Dynamic?: boolean
+  /** Divi gutter class on body: WP uses et_pb_gutters2 vs et_pb_gutters3 per page. */
+  etPbGutters?: '2' | '3'
 }
 
 const {
@@ -30,11 +32,14 @@ const {
   schemaJson,
   bodyClass = '',
   includeEtCache11Dynamic = true,
+  etPbGutters = '3',
 } = Astro.props
 
+const etPbGuttersClass = etPbGutters === '2' ? 'et_pb_gutters2' : 'et_pb_gutters3'
+
 const canonicalUrl = canonical
-  ? `https://SpartanTech.org${canonical}`
-  : `https://SpartanTech.org${Astro.url.pathname}`
+  ? `https://FBRsoftware.com${canonical}`
+  : `https://FBRsoftware.com${Astro.url.pathname}`
 ---
 
 <!doctype html>
@@ -55,7 +60,7 @@ const canonicalUrl = canonical
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:site_name" content="Spartan Accounts" />
-  <meta property="og:image" content={`https://SpartanTech.org${ogImage}`} />
+  <meta property="og:image" content={`https://FBRsoftware.com${ogImage}`} />
   {articlePublished && <meta property="article:published_time" content={articlePublished} />}
   {articleModified && <meta property="article:modified_time" content={articleModified} />}
 
@@ -111,9 +116,11 @@ const canonicalUrl = canonical
   <script is:inline>window.$ = window.jQuery;</script>
 
   <slot name="head" />
+  <link rel="stylesheet" href="/css/pages/divi-cascade-tail.css" media="all" />
+  <link rel="stylesheet" href="/css/video-placeholder.css" media="all" />
 </head>
 
-<body class={`wp-singular et_pb_button_helper_class et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_cover_background et_pb_gutter et_pb_gutters3 et_pb_pagebuilder_layout et_divi_theme et-db et-tb-has-template et-tb-has-footer mkb-desktop ${bodyClass}`}>
+<body class={`wp-singular et_pb_button_helper_class et_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_cover_background et_pb_gutter ${etPbGuttersClass} et_pb_pagebuilder_layout et_divi_theme et-db et-tb-has-template et-tb-has-footer mkb-desktop ${bodyClass}`}>
   <script is:inline>
     if (location.protocol === 'file:') {
       console.warn(

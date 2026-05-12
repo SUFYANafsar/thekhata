@@ -14,12 +14,13 @@ interface Props {
   bodyClass?: string
   /** Forwarded to BaseLayout; set false for pages that ship their own et-cache (e.g. retail 237824). */
   includeEtCache11Dynamic?: boolean
+  etPbGutters?: '2' | '3'
 }
 
-const { bodyClass = 'et_no_sidebar', ...props } = Astro.props
+const { bodyClass = 'et_no_sidebar', etPbGutters = '3', ...props } = Astro.props
 ---
 
-<BaseLayout {...props} bodyClass={bodyClass}>
+<BaseLayout {...props} bodyClass={bodyClass} etPbGutters={etPbGutters}>
   <Fragment slot="head">
     <slot name="head" />
   </Fragment>

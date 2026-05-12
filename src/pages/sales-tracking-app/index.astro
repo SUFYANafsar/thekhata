@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
+import { videoEmbedHtml } from '../../lib/videoEmbedHtml'
 const body = `<div id="et-main-area">
 	
 <div id="main-content">
@@ -98,7 +99,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="📊 Track and Boost Your Sales Team’s Performance with Spartan Accounts Order Booker App!" width="563" height="1000" src="https://www.youtube.com/embed/7cIpXCg8eok?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/7cIpXCg8eok?feature=oembed',
+					title: 'Track and Boost Your Sales Team\u2019s Performance with Spartan Accounts Order Booker App!',
+					width: 563,
+					height: 1000,
+				})}
 				
 			</div>
 			</div>

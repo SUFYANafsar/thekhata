@@ -6,7 +6,7 @@ Generate Astro pages for author and category archive pages from HTTrack mirror.
 import os
 import re
 
-MIRROR = '/Users/macbookpro14m1pro/Desktop/spartanaccounts/SpartanTech.org'
+MIRROR = '/Users/macbookpro14m1pro/Desktop/spartanaccounts/FBRsoftware.com'
 ASTRO_PAGES = '/Users/macbookpro14m1pro/Desktop/splendid-astro/src/pages'
 
 STYLE_IDS = [
@@ -173,8 +173,8 @@ for page in PAGES:
             f.write(css + '\n')
 
     canon = page['url']
-    if meta['canonical'].startswith('https://SpartanTech.org'):
-        canon = meta['canonical'].replace('https://SpartanTech.org', '')
+    if meta['canonical'].startswith('https://FBRsoftware.com'):
+        canon = meta['canonical'].replace('https://FBRsoftware.com', '')
 
     title = meta['title'] or 'Spartan Accounts'
     desc  = meta['description'] or 'Spartan Accounts - ERP software for Pakistan businesses.'

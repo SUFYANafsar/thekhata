@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
+import { videoEmbedHtml } from '../../lib/videoEmbedHtml'
 const body = `<div id="et-main-area">
 	
 <div id="main-content">
@@ -249,7 +250,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="Spartan Accounts Testimonial: Revolutionizing Inventory Management for Jeans Express in Islamabad!" width="1080" height="608" src="https://www.youtube.com/embed/i7rI-3ArDxk?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/i7rI-3ArDxk?feature=oembed',
+					title: 'Spartan Accounts Testimonial: Revolutionizing Inventory Management for Jeans Express in Islamabad!',
+					width: 1080,
+					height: 608,
+				})}
 				<div style="background-image:url(../wp-content/uploads/2024/05/jeans-express-1-1.png)" class="et_pb_video_overlay"><div class="et_pb_video_overlay_hover"><a href="#" class="et_pb_video_play"></a></div></div>
 			</div>
 			</div>
@@ -440,7 +446,7 @@ const body = `<div id="et-main-area">
 <p>Easy to use interface allows your employees to expertly handle all the software operations. Our integrated inventory management will never make you run out of stock!</p>
 <p>What’s more is our software is priced at an extremely affordable price point. No need to invest a fortune in sub-par POS systems when Spartan Accounts offers you a top of line software that too for a fraction of the price.</p>
 <p>Spartan Accounts offers complete business solutions in addition to Point of sale software system. Our software can be streamlined with small businesses as well as large operations.</p>
-<p>Invest in a hassle-free POS Software system today! Give us a call or drop an email at <a href="mailto:suport@spartantech.org" style="color: #cfcf;">suport@spartantech.org</a> for further assistance.</p></div>
+<p>Invest in a hassle-free POS Software system today! Give us a call or drop an email at <a href="mailto:suport@FBRSoftware.com" style="color: #cfcf;">suport@FBRSoftware.com</a> for further assistance.</p></div>
 					</div>
 				</div>
 			</div><div class="et_pb_button_module_wrapper et_pb_button_4_wrapper et_pb_button_alignment_center et_pb_module ">
@@ -614,9 +620,14 @@ const body = `<div id="et-main-area">
   description="Experience our lightning fast POS software and speedup your Small Business Operations with Online and Offline Point of Sale Software System."
   canonical="/point-of-sale/"
   ogImage="/wp-content/uploads/2022/01/link-image.jpg"
+  includeEtCache11Dynamic={false}
+  etPbGutters="2"
+  bodyClass="page-template-default page page-id-237377 wp-theme-Divi et_no_sidebar mkb-version-2-0-9"
 >
   <Fragment slot="head">
-    <link rel="stylesheet" href="/css/pages/point-of-sale.css" />
+    <link rel="stylesheet" href="/css/pages/point-of-sale.css" media="all" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,600" media="all" />
+    <link rel="stylesheet" href="/wp-content/litespeed/css/cd79b6a8b7907006d9bc7f7c38eb5b114e3f.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/237377/et-divi-dynamic-tb-132-237377-latea3df.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/237377/et-divi-dynamic-tb-132-237377a3df.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/237377/et-core-unified-tb-132-deferred-237377.min53ee.css" media="all" />

@@ -1,6 +1,10 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
-const body = `<div id="et-main-area">
+import { isVideoEmbedsEnabled } from '../../lib/videoEmbedHtml'
+
+const showVideoEmbeds = isVideoEmbedsEnabled()
+
+const bodyRaw = `<div id="et-main-area">
 	
 <div id="main-content">
 
@@ -66,8 +70,8 @@ const body = `<div id="et-main-area">
 			data-page="1"
 			id="yotuwp-6a021e59e3bd1"
 			data-yotu="6a021e5a28cb8"
-			data-total="11"
-			data-settings="eyJ0eXBlIjoicGxheWxpc3QiLCJpZCI6IlVVdmVaYmp2Q1l6bENoSDVTOTFkRDFVQSIsInBhZ2luYXRpb24iOiJvbiIsInBhZ2l0eXBlIjoibG9hZG1vcmUiLCJjb2x1bW4iOiIyIiwicGVyX3BhZ2UiOiIyNCIsInRlbXBsYXRlIjoiZ3JpZCIsInRpdGxlIjoib24iLCJkZXNjcmlwdGlvbiI6Im9mZiIsInRodW1icmF0aW8iOiIxNjkiLCJtZXRhIjoib2ZmIiwibWV0YV9kYXRhIjoib2ZmIiwibWV0YV9wb3NpdGlvbiI6Im9mZiIsImRhdGVfZm9ybWF0Ijoib2ZmIiwibWV0YV9hbGlnbiI6Im9mZiIsInN1YnNjcmliZSI6Im9mZiIsImR1cmF0aW9uIjoib2ZmIiwibWV0YV9pY29uIjoib2ZmIiwibmV4dHRleHQiOiIiLCJwcmV2dGV4dCI6IiIsImxvYWRtb3JldGV4dCI6IiIsInBsYXllciI6eyJtb2RlIjoibGFyZ2UiLCJ3aWR0aCI6IjEwMjQiLCJzY3JvbGxpbmciOiIxMDAiLCJhdXRvcGxheSI6MCwiY29udHJvbHMiOjEsIm1vZGVzdGJyYW5kaW5nIjoxLCJsb29wIjowLCJhdXRvbmV4dCI6MCwic2hvd2luZm8iOjEsInJlbCI6MCwicGxheWluZyI6MSwicGxheWluZ19kZXNjcmlwdGlvbiI6MCwidGh1bWJuYWlscyI6MCwiY2NfbG9hZF9wb2xpY3kiOiIxIiwiY2NfbGFuZ19wcmVmIjoiMSIsImhsIjoiIiwiaXZfbG9hZF9wb2xpY3kiOiIxIn0sImxhc3RfdGFiIjoic2V0dGluZ3MiLCJ1c2VfYXNfbW9kYWwiOiJvZmYiLCJtb2RhbF9pZCI6Im9mZiIsImxhc3RfdXBkYXRlIjoiMTY4MzAwNjM3MiIsInN0eWxpbmciOnsicGFnZXJfbGF5b3V0IjoiZGVmYXVsdCIsImJ1dHRvbiI6IjEiLCJidXR0b25fY29sb3IiOiIiLCJidXR0b25fYmdfY29sb3IiOiIiLCJidXR0b25fY29sb3JfaG92ZXIiOiIiLCJidXR0b25fYmdfY29sb3JfaG92ZXIiOiIiLCJ2aWRlb19zdHlsZSI6IiIsInBsYXlpY29uX2NvbG9yIjoiIiwiaG92ZXJfaWNvbiI6IiIsImdhbGxlcnlfYmciOiIifSwiZWZmZWN0cyI6eyJ2aWRlb19ib3giOiIiLCJmbGlwX2VmZmVjdCI6IiJ9LCJnYWxsZXJ5X2lkIjoiNmEwMjFlNTllM2JkMSIsIm5leHQiOiJFQUFhSGxCVU9rTkNaMmxGUkVFd1VWVk5NVTVxWkVaUk1FMHhUMVJLUms1RlRRIiwicHJldiI6IiJ9"
+			data-total="25"
+			data-settings="eyJ0eXBlIjoicGxheWxpc3QiLCJpZCI6IlVVdmVaYmp2Q1l6bENoSDVTOTFkRDFVQSIsInBhZ2luYXRpb24iOiJvZmYiLCJwYWdpdHlwZSI6ImxvYWRtb3JlIiwiY29sdW1uIjoiMiIsInBlcl9wYWdlIjoiMjAwIiwidGVtcGxhdGUiOiJncmlkIiwidGl0bGUiOiJvbiIsImRlc2NyaXB0aW9uIjoib2ZmIiwidGh1bWJyYXRpbyI6IjE2OSIsIm1ldGEiOiJvZmYiLCJtZXRhX2RhdGEiOiJvZmYiLCJtZXRhX3Bvc2l0aW9uIjoib2ZmIiwiZGF0ZV9mb3JtYXQiOiJvZmYiLCJtZXRhX2FsaWduIjoib2ZmIiwic3Vic2NyaWJlIjoib2ZmIiwiZHVyYXRpb24iOiJvZmYiLCJtZXRhX2ljb24iOiJvZmYiLCJuZXh0dGV4dCI6IiIsInByZXZ0ZXh0IjoiIiwibG9hZG1vcmV0ZXh0IjoiIiwicGxheWVyIjp7Im1vZGUiOiJsYXJnZSIsIndpZHRoIjoiMTAyNCIsInNjcm9sbGluZyI6IjEwMCIsImF1dG9wbGF5IjowLCJjb250cm9scyI6MSwibW9kZXN0YnJhbmRpbmciOjEsImxvb3AiOjAsImF1dG9uZXh0IjowLCJzaG93aW5mbyI6MSwicmVsIjowLCJwbGF5aW5nIjoxLCJwbGF5aW5nX2Rlc2NyaXB0aW9uIjowLCJ0aHVtYm5haWxzIjowLCJjY19sb2FkX3BvbGljeSI6IjEiLCJjY19sYW5nX3ByZWYiOiIxIiwiaGwiOiIiLCJpdl9sb2FkX3BvbGljeSI6IjEifSwibGFzdF90YWIiOiJzZXR0aW5ncyIsInVzZV9hc19tb2RhbCI6Im9mZiIsIm1vZGFsX2lkIjoib2ZmIiwibGFzdF91cGRhdGUiOiIxNjgzMDA2MzcyIiwic3R5bGluZyI6eyJwYWdlcl9sYXlvdXQiOiJkZWZhdWx0IiwiYnV0dG9uIjoiMSIsImJ1dHRvbl9jb2xvciI6IiIsImJ1dHRvbl9iZ19jb2xvciI6IiIsImJ1dHRvbl9jb2xvcl9ob3ZlciI6IiIsImJ1dHRvbl9iZ19jb2xvcl9ob3ZlciI6IiIsInZpZGVvX3N0eWxlIjoiIiwicGxheWljb25fY29sb3IiOiIiLCJob3Zlcl9pY29uIjoiIiwiZ2FsbGVyeV9iZyI6IiJ9LCJlZmZlY3RzIjp7InZpZGVvX2JveCI6IiIsImZsaXBfZWZmZWN0IjoiIn0sImdhbGxlcnlfaWQiOiI2YTAyMWU1OWUzYmQxIiwibmV4dCI6IkVBQWFIbEJVT2tOQ1oybEZSRUV3VVZWTk1VNXFaRVpSTUUweFQxUktSazVGVFEiLCJwcmV2IjoiIn0="
 			data-player="large"
 			data-showdesc="off" >
 				<div>
@@ -347,7 +351,7 @@ const body = `<div id="et-main-area">
 							</li>
 				
 				</ul>
-</div><div class="yotu-pagination">
+</div><div class="yotu-pagination" style="display:none" aria-hidden="true">
 	<a href="#" class="yotu-pagination-more yotu-button-prs yotu-button-prs-1" data-page="more">Load more</a>
 </div>
 				</div>
@@ -426,6 +430,21 @@ const body = `<div id="et-main-area">
 			
 
 </div>`
+
+function applyVideoPlaylistEmbedEnv(html: string): string {
+  if (showVideoEmbeds) return html
+  let out = html.replace(
+    /<a href="#([A-Za-z0-9_-]+)" class="yotu-video"/g,
+    '<a href="https://www.youtube.com/watch?v=$1" target="_blank" rel="noopener noreferrer" class="yotu-video"'
+  )
+  out = out.replace(
+    /<div class="yotu-video-placeholder" id="yotu-player-6a021e5a28cb8"><\/div>/,
+    '<div class="et_pb_video_box et-video-placeholder-wrap" style="aspect-ratio:1024/576;max-width:100%;width:min(1024px,100%)"><div class="et-video-placeholder-inner"><p class="et-video-placeholder-title">On-site player disabled</p><p class="et-video-placeholder-sub">Set PUBLIC_SHOW_VIDEO_EMBEDS=true in .env for embedded playback. Thumbnails below open each tutorial on YouTube.</p></div></div>'
+  )
+  return out
+}
+
+const body = applyVideoPlaylistEmbedEnv(bodyRaw)
 ---
 <PageLayout
   title="Video Tutorials for Training - Spartan Accounts"
@@ -444,7 +463,9 @@ const body = `<div id="et-main-area">
     <link rel="stylesheet" href="/wp-content/et-cache/425/et-core-unified-tb-132-deferred-425.min5f82.css" media="all" />
   </Fragment>
   <Fragment slot="scripts">
-    <script is:inline src="/wp-content/litespeed/js/d8f2693d793bfe42c2023545d456118cb0bf.js"></script>
+    {showVideoEmbeds && (
+      <script is:inline src="/wp-content/litespeed/js/d8f2693d793bfe42c2023545d456118cb0bf.js" />
+    )}
     <script is:inline>
       document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('img.yotu-video-thumb[data-src]').forEach(function (img) {

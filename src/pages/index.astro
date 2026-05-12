@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro'
+import { videoEmbedHtml, youTubeWatchHref } from '../lib/videoEmbedHtml'
 const body = `<div id="et-main-area">
 	
 <div id="main-content">
@@ -56,7 +57,7 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<a href="https://play.google.com/store/apps/details?id=com.spartantech.invoicing"><span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /><noscript><img decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /></noscript></span></a>
+				<a href="https://play.google.com/store/apps/details?id=com.fbrsoftware.invoicing"><span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /><noscript><img decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /></noscript></span></a>
 			</div>
 			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_inner et_pb_column_inner_2 et-last-child">
 				
@@ -163,7 +164,7 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<a href="https://play.google.com/store/apps/details?id=com.spartantech.invoicing"><span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /><noscript><img decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /></noscript></span></a>
+				<a href="https://play.google.com/store/apps/details?id=com.fbrsoftware.invoicing"><span class="et_pb_image_wrap "><img data-lazyloaded="1" decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /><noscript><img decoding="async" width="200" height="60" src="/wp-content/uploads/2021/08/play-store.png" alt="" title="play-store" class="wp-image-147" /></noscript></span></a>
 			</div>
 			</div><div class="et_pb_column et_pb_column_1_4 et_pb_column_inner et_pb_column_inner_7 et-last-child">
 				
@@ -345,7 +346,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="Discover Spartan Accounts: Your Ultimate Accounting and Inventory Management Solution" width="1080" height="608" src="https://www.youtube.com/embed/72IE-A8Ho5M?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/72IE-A8Ho5M?feature=oembed',
+					title: 'Discover Spartan Accounts: Your Ultimate Accounting and Inventory Management Solution',
+					width: 1080,
+					height: 608,
+				})}
 				<div style="background-image:url(wp-content/uploads/2024/05/Spartan-accounts-final.jpg)" class="et_pb_video_overlay"><div class="et_pb_video_overlay_hover"><a href="#" class="et_pb_video_play"></a></div></div>
 			</div><div class="et_pb_button_module_wrapper et_pb_button_4_wrapper et_pb_button_alignment_center et_pb_module ">
 				<a class="et_pb_button et_pb_button_4 et_pb_bg_layout_light" href="/free-trial/" data-icon="I">14 days free trial</a>
@@ -1470,7 +1476,7 @@ const body = `<div id="et-main-area">
 						class="dtq-video-popup-trigger dtq-popup-yt"
 						data-order="0"
 						data-type="yt"
-						href="https://www.youtube.com/watch?v=VYuy6Fqc7lk"
+						href="${youTubeWatchHref('https://www.youtube.com/watch?v=VYuy6Fqc7lk')}"
 						
 					>
 						<span class="dtq-video-popup-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 494.148 494.148"><g><g><path d="M405.284,201.188L130.804,13.28C118.128,4.596,105.356,0,94.74,0C74.216,0,61.52,16.472,61.52,44.044v406.124 c0,27.54,12.68,43.98,33.156,43.98c10.632,0,23.2-4.6,35.904-13.308l274.608-187.904c17.66-12.104,27.44-28.392,27.44-45.884 C432.632,229.572,422.964,213.288,405.284,201.188z"/> </g></g></svg></span>
@@ -1502,7 +1508,7 @@ const body = `<div id="et-main-area">
 						class="dtq-video-popup-trigger dtq-popup-yt"
 						data-order="1"
 						data-type="yt"
-						href="https://www.youtube.com/watch?v=1sJ8iVInbJ4"
+						href="${youTubeWatchHref('https://www.youtube.com/watch?v=1sJ8iVInbJ4')}"
 						
 					>
 						<span class="dtq-video-popup-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 494.148 494.148"><g><g><path d="M405.284,201.188L130.804,13.28C118.128,4.596,105.356,0,94.74,0C74.216,0,61.52,16.472,61.52,44.044v406.124 c0,27.54,12.68,43.98,33.156,43.98c10.632,0,23.2-4.6,35.904-13.308l274.608-187.904c17.66-12.104,27.44-28.392,27.44-45.884 C432.632,229.572,422.964,213.288,405.284,201.188z"/> </g></g></svg></span>
@@ -1534,7 +1540,7 @@ const body = `<div id="et-main-area">
 						class="dtq-video-popup-trigger dtq-popup-yt"
 						data-order="2"
 						data-type="yt"
-						href="https://youtube.com/watch?v=i7rI-3ArDxk"
+						href="${youTubeWatchHref('https://youtube.com/watch?v=i7rI-3ArDxk')}"
 						
 					>
 						<span class="dtq-video-popup-icon"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 494.148 494.148"><g><g><path d="M405.284,201.188L130.804,13.28C118.128,4.596,105.356,0,94.74,0C74.216,0,61.52,16.472,61.52,44.044v406.124 c0,27.54,12.68,43.98,33.156,43.98c10.632,0,23.2-4.6,35.904-13.308l274.608-187.904c17.66-12.104,27.44-28.392,27.44-45.884 C432.632,229.572,422.964,213.288,405.284,201.188z"/> </g></g></svg></span>
@@ -1578,7 +1584,7 @@ Very user friendly.
 Making updates to products and importing through excel files is one of the best features.
 All other systems are excellent.
 There is no issue that me and my team of 5 people have faces.
-Pricing is fairly reasonable but could be better.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Hide" data-open-text="Read more"></span> </div> </div>  <div data-empty="0" data-time="1707523200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjVT4T9ka9ni2laLt4MkkVP7xVW6FZ9FNyARfEjQgEITDuc=w40-h40-c-rp-mo-ba2-br100" alt="Hasnain Feroz" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Hasnain Feroz </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Positive response one-year experience with splendid account software: user-friendly interface, effective reporting, and timely updates contribute to overall satisfaction.
+Pricing is fairly reasonable but could be better.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Hide" data-open-text="Read more"></span> </div> </div>  <div data-empty="0" data-time="1707523200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjVT4T9ka9ni2laLt4MkkVP7xVW6FZ9FNyARfEjQgEITDuc=w40-h40-c-rp-mo-ba2-br100" alt="Hasnain Feroz" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Hasnain Feroz </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Positive response one-year experience with spartan account software: user-friendly interface, effective reporting, and timely updates contribute to overall satisfaction.
 Taha Paint &amp; General Trading.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Hide" data-open-text="Read more"></span> </div> </div>  <div data-empty="0" data-time="1707523200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjUD7RuBQeuD0jBG5Dw65gU0MhtDH1E1FK6MfZnr4QLTJA=w40-h40-c-rp-mo-ba3-br100" alt="Kaiser lqbal" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Kaiser lqbal </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->I am using Spartan Accounts for last one year and we found it ver user friendly for entrepreneurs to have comprehensive overview of multiple group businesses activities.
 Wish them Best of Luck and keep growing<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Hide" data-open-text="Read more"></span> </div> </div>  <div data-empty="0" data-time="1707523200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a/ACg8ocJzhDRMoPi8BFdfpvj-s5zaT04FGLs-SXEOwtik0xA-=w40-h40-c-rp-mo-br100" alt="faiq mukhtar" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> faiq mukhtar </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->highly recommended good work<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Hide" data-open-text="Read more"></span> </div> </div>  <div data-empty="0" data-time="1707523200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjW4ErAYl-UOocU2kfeVLXimCUJxKWne6-HVD-29yn6L0OY=w40-h40-c-rp-mo-br100" alt="Sethu K sathyan" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> Sethu K sathyan </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->I just wanted to let you know how much I appreciate the accounting software you implemented. It has made our financial processes so much smoother and efficient. The user-friendly interface and automation features have saved us time and improved accuracy in our financial reporting. Thank you so much for Spartan Software enter team for support and assistance.<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".ti-review-content" data-collapse-text="Hide" data-open-text="Read more"></span> </div> </div>  <div data-empty="0" data-time="1707523200" class="ti-review-item source-Google ti-image-layout-thumbnail" data-id="cfcd208495d565ef66e7dff9f98764da"> <div class="ti-inner"> <div class="ti-review-header"> <div class="ti-profile-img"> <trustindex-image data-imgurl="https://lh3.googleusercontent.com/a-/ALV-UjUHysm5et6obUEiJrb2wqCspfEYb4TJWhoJkRSTN0sSMhw=w40-h40-c-rp-mo-br100" alt="muhammad shahzad" loading="lazy"></trustindex-image> </div> <div class="ti-profile-details"> <div class="ti-name"> muhammad shahzad </div> <div class="ti-date"></div> </div> </div> <span class="ti-stars"><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span><span class="ti-star f"></span></span> <div class="ti-review-text-container ti-review-content"><!-- R-CONTENT -->Outstanding Software
 Awesome Service
@@ -1612,6 +1618,7 @@ Keep It Up<!-- R-CONTENT --></div> <span class="ti-read-more" data-container=".t
   description="Sales, Purchases, POS, Inventory, Manufacturing, & Accounting Software in a single place. 75+ accounting, inventory, and analytical reports."
   canonical="/"
   ogImage="/wp-content/uploads/2022/01/splendid-accounts-logo.png"
+  bodyClass="home page-template-default page page-id-11 wp-theme-Divi et_no_sidebar"
 >
   <Fragment slot="head">
     <link rel="stylesheet" href="/css/pages/__home__.css" />

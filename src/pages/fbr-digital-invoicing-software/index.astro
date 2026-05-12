@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
+import { videoEmbedHtml } from '../../lib/videoEmbedHtml'
 const body = `<div id="et-main-area">
 	
 <div id="main-content">
@@ -253,7 +254,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="Discover Spartan Accounts: Your Ultimate Accounting and Inventory Management Solution" width="1080" height="608" src="https://www.youtube.com/embed/72IE-A8Ho5M?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/72IE-A8Ho5M?feature=oembed',
+					title: 'Discover Spartan Accounts: Your Ultimate Accounting and Inventory Management Solution',
+					width: 1080,
+					height: 608,
+				})}
 				
 			</div>
 			</div>

@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro'
+import { videoEmbedHtml } from '../../lib/videoEmbedHtml'
 const body = `<div id="et-main-area">
 	
 <div id="main-content">
@@ -149,7 +150,12 @@ const body = `<div id="et-main-area">
 				
 				
 				
-				<div class="et_pb_video_box"><iframe title="Mastering Customer Credit Management with Spartan Accounts | Comprehensive Training Video" width="1080" height="608" src="https://www.youtube.com/embed/MiZ-ReJ3XRE?feature=oembed"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+				${videoEmbedHtml({
+					src: 'https://www.youtube.com/embed/MiZ-ReJ3XRE?feature=oembed',
+					title: 'Mastering Customer Credit Management with Spartan Accounts | Comprehensive Training Video',
+					width: 1080,
+					height: 608,
+				})}
 				
 			</div><div class="et_pb_module et_pb_text et_pb_text_6 et_clickable  et_pb_text_align_center et_pb_bg_layout_light">
 				

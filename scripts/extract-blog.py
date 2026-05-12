@@ -8,7 +8,7 @@ import os
 import re
 import sys
 
-SOURCE = "/Users/macbookpro14m1pro/Desktop/spartanaccounts/SpartanTech.org"
+SOURCE = "/Users/macbookpro14m1pro/Desktop/spartanaccounts/FBRsoftware.com"
 DEST   = "/Users/macbookpro14m1pro/Desktop/splendid-astro/src/content/blog"
 
 

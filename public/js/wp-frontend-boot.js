@@ -48,7 +48,7 @@ var et_pb_box_shadow_elements = [];
 var et_pb_sticky_elements = [];
 var MinervaKB = {
   ajaxUrl: '#',
-  siteUrl: 'https://SpartanTech.org/',
+  siteUrl: 'https://FBRsoftware.com/',
   platform: 'desktop',
   info: {
     isPost: false,
