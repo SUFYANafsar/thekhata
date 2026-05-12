@@ -150,6 +150,10 @@ def write_astro(slug: str, meta: dict, body: str):
     # Escape backticks in body (safety)
     safe_body = body.replace('`', '&#96;').replace('${', '&#36;{')
 
+    # Pages with per-post et-cache links must not also load Theme Builder post-11
+    # dynamic CSS (same .et_pb_section_* class names → wrong cascade vs static HTML).
+    tb11_opt = "\n  includeEtCache11Dynamic={false}" if meta.get("et_css") else ""
+
     content = f"""---
 import PageLayout from '{layout_import}'
 const body = `{safe_body}`
@@ -158,7 +162,7 @@ const body = `{safe_body}`
   title="{meta['title']}"
   description="{meta['description']}"
   canonical="/{slug}/"
-  ogImage="{meta['og_image']}"
+  ogImage="{meta['og_image']}"{tb11_opt}
 >
 {head_slot}  <div set:html={{body}} />
 </PageLayout>

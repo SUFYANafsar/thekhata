@@ -11,6 +11,12 @@ interface Props {
   articleModified?: string
   schemaJson?: string
   bodyClass?: string
+  /**
+   * When false, skip Theme Builder et-cache for post 11 (dynamic + deferred).
+   * Static retail HTML only loads et-cache/237824 — loading 11 here overrides
+   * page-specific Divi rules (same .et_pb_section_* class names on different posts).
+   */
+  includeEtCache11Dynamic?: boolean
 }
 
 const {
@@ -23,6 +29,7 @@ const {
   articleModified,
   schemaJson,
   bodyClass = '',
+  includeEtCache11Dynamic = true,
 } = Astro.props
 
 const canonicalUrl = canonical
@@ -75,11 +82,17 @@ const canonicalUrl = canonical
   <link rel="stylesheet" href="/wp-content/litespeed/css/0145b8cfed2ed379eac432b3fb16aeeb4873.css" media="all" />
   <link rel="stylesheet" href="/wp-content/litespeed/css/379c645cf787dbec6000c2fd8090ded710b7.css" media="all" />
 
-  <!-- Divi core + page TB-132 (post 11): WP inlined these + et-cache; LiteSpeed bundles alone are not enough for layout -->
+  <!-- Divi theme critical (post-11 mirror); matches WP divi-style-inline on static pages -->
   <link rel="stylesheet" href="/wp-content/et-cache/11/divi-wp-critical-combined.css" media="all" />
-  <link rel="stylesheet" href="/wp-content/et-cache/11/et-divi-dynamic-tb-132-113705.css" media="all" />
-  <link rel="stylesheet" href="/wp-content/et-cache/11/et-divi-dynamic-tb-132-11-late3705.css" media="all" />
-  <link rel="stylesheet" href="/wp-content/et-cache/11/et-core-unified-tb-132-deferred-11.min0fe6.css" media="all" />
+  {
+    includeEtCache11Dynamic ? (
+      <>
+        <link rel="stylesheet" href="/wp-content/et-cache/11/et-divi-dynamic-tb-132-113705.css" media="all" />
+        <link rel="stylesheet" href="/wp-content/et-cache/11/et-divi-dynamic-tb-132-11-late3705.css" media="all" />
+        <link rel="stylesheet" href="/wp-content/et-cache/11/et-core-unified-tb-132-deferred-11.min0fe6.css" media="all" />
+      </>
+    ) : null
+  }
 
   <!-- Google Tag Manager -->
   <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=UA-38116496-9"></script>

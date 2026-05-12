@@ -390,7 +390,7 @@ const body = `<div id="et-main-area">
 					
 					<div class="et_pb_blurb_container">
 						<h2 class="et_pb_module_header"><span>Redefine The Way You Do Your Accounting</span></h2>
-						<div class="et_pb_blurb_description"><p style="text-align: center;"><span style="color: #ffffff;"><a href="/../accounting-software-pricing-plan/" style="color: #ffffff;">The Interactive System Lets You Handle Sales &amp; Expenses Like A PRO!</a></span></p></div>
+						<div class="et_pb_blurb_description"><p style="text-align: center;"><span style="color: #ffffff;"><a href="/accounting-software-pricing-plan/" style="color: #ffffff;">The Interactive System Lets You Handle Sales &amp; Expenses Like A PRO!</a></span></p></div>
 					</div>
 				</div>
 			</div>
@@ -406,7 +406,7 @@ const body = `<div id="et-main-area">
 				
 				
 				<div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_button_alignment_center et_pb_module ">
-				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="/../free-trial/">Get Started Now</a>
+				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="/free-trial/">Get Started Now</a>
 			</div>
 			</div>
 				
@@ -432,12 +432,27 @@ const body = `<div id="et-main-area">
   description="In tutorials we explain complex accounting concepts in simple terms, making it easy for you to understand how to use the software effectively."
   canonical="/video/"
   ogImage="/wp-content/uploads/2022/01/link-image.jpg"
+  includeEtCache11Dynamic={false}
 >
   <Fragment slot="head">
     <link rel="stylesheet" href="/css/pages/video.css" />
+    <link rel="stylesheet" href="/wp-content/litespeed/css/92e0442fd32a17d6d9d181e5915298b63abb.css" media="all" />
+    <link rel="stylesheet" href="/wp-content/litespeed/css/22373d48f08b0dde12685d55d54799f42963.css" media="all" />
+    <link rel="stylesheet" href="/wp-content/litespeed/css/287dd6280f74621f81c5b33768a26a556632.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/425/et-divi-dynamic-tb-132-425-late52c3.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/425/et-divi-dynamic-tb-132-42552c3.css" media="all" />
     <link rel="stylesheet" href="/wp-content/et-cache/425/et-core-unified-tb-132-deferred-425.min5f82.css" media="all" />
+  </Fragment>
+  <Fragment slot="scripts">
+    <script is:inline src="/wp-content/litespeed/js/d8f2693d793bfe42c2023545d456118cb0bf.js"></script>
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('img.yotu-video-thumb[data-src]').forEach(function (img) {
+          var u = img.getAttribute('data-src')
+          if (u) img.setAttribute('src', u)
+        })
+      })
+    </script>
   </Fragment>
   <div set:html={body} />
 </PageLayout>

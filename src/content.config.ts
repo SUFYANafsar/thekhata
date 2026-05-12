@@ -12,6 +12,10 @@ const blog = defineCollection({
     published: z.string().optional(),
     modified: z.string().optional(),
     schemaJson: z.string().optional(),
+    /** WP post ID — used to load `/wp-content/et-cache/{id}/*.css` when present in `public/`. */
+    wpPostId: z.number().optional(),
+    /** LiteSpeed sheet paired with this post (customizer global or et-core-unified cached inline). */
+    etInlineCss: z.string().optional(),
   }),
 })
 

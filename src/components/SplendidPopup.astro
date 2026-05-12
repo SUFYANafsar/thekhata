@@ -74,33 +74,75 @@
   margin-top: 18px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
-.no-border { border: none !important; border-radius: 8px; }
-.sp-btn-primary {
-  background: linear-gradient(135deg,#4fa8d6,#2e7cc2);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(79,168,214,0.5);
-  transition: 0.3s;
-  display: inline-block;
-}
-.sp-btn-primary:hover { transform: translateY(-2px); }
-.sp-btn-secondary {
-  padding: 6px 14px;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 8px;
-  background: #ffffff;
-  color: #111827;
+/* Primary CTA: use <a> only (not <button><a>) so Divi/theme link rules do not flatten styles */
+.sp-actions .sp-btn-primary {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 118px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none !important;
   cursor: pointer;
-  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #fff !important;
+  background: linear-gradient(180deg, #3b82f6, #2563eb);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.42);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
-.sp-btn-secondary:hover { background: #f3f4f6; transform: translateY(-2px); }
+.sp-actions .sp-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.5);
+  filter: brightness(1.03);
+  color: #fff !important;
+}
+.sp-btn-secondary {
+  box-sizing: border-box;
+  min-width: 118px;
+  padding: 10px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111827 !important;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.sp-btn-secondary:hover {
+  background: #f3f4f6;
+  transform: translateY(-1px);
+}
 @media (max-width: 480px) {
   .sp-box { width: 90vw; }
 }
+</style>
+
+<!-- Divi sets strong global `a` rules; pin popup CTA so it always matches design -->
+<style is:global>
+  #splendid-popup a.sp-btn-primary {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+  #splendid-popup a.sp-btn-primary:hover,
+  #splendid-popup a.sp-btn-primary:focus {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
 </style>
 
 <div id="splendid-popup" class="sp-overlay">
@@ -115,10 +157,12 @@
       <h2>Need help?</h2>
       <p>We've seen that businesses like yours often need guidance choosing the right ERP. Our consultants can help you find the perfect solution.</p>
       <div class="sp-actions">
-        <button class="no-border">
-          <a href="https://wa.me/923325008992?text=Hello%2C%20I%20need%20assistance%20with%20ERP" target="_blank" class="sp-btn-primary">Let's chat</a>
-        </button>
-        <button class="sp-btn-secondary" onclick="closeSplendidPopup()">Not now</button>
+        <a
+          href="https://wa.me/923325008992?text=Hello%2C%20I%20need%20assistance%20with%20ERP"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="sp-btn-primary">Let's chat</a>
+        <button type="button" class="sp-btn-secondary" onclick="closeSplendidPopup()">Not now</button>
       </div>
     </div>
   </div>

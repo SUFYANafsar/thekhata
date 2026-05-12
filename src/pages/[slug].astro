@@ -22,6 +22,8 @@ const { Content } = await render(post)
   published={post.data.published}
   modified={post.data.modified}
   schemaJson={post.data.schemaJson}
+  wpPostId={post.data.wpPostId}
+  etInlineCss={post.data.etInlineCss}
 >
   <Content />
 </BlogPostLayout>

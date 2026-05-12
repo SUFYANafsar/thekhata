@@ -1,4 +1,6 @@
 ---
+import fs from 'node:fs'
+import path from 'node:path'
 import BaseLayout from './BaseLayout.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
@@ -11,18 +13,52 @@ interface Props {
   published?: string
   modified?: string
   schemaJson?: string
+  wpPostId?: number
+  etInlineCss?: string
 }
 
 const props = Astro.props
+const { wpPostId, etInlineCss, ...baseProps } = props
+
+function etCacheStylesheetHrefs(id: number): string[] {
+  const dir = path.join(process.cwd(), 'public', 'wp-content', 'et-cache', String(id))
+  if (!fs.existsSync(dir)) return []
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.css'))
+  const rank = (f: string) => {
+    if (f.includes('-late')) return 0
+    if (f.startsWith('et-divi-dynamic')) return 1
+    if (f.includes('et-core-unified')) return 2
+    return 3
+  }
+  return [...files]
+    .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b))
+    .map((f) => `/wp-content/et-cache/${id}/${f}`)
+}
+
+const etPostLinks = wpPostId != null ? etCacheStylesheetHrefs(wpPostId) : []
+
+const etInlinePublicPath = etInlineCss?.startsWith('/')
+  ? path.join(process.cwd(), 'public', etInlineCss.slice(1))
+  : null
+const etInlineHref =
+  etInlineCss && etInlinePublicPath && fs.existsSync(etInlinePublicPath) ? etInlineCss : null
 ---
 
 <BaseLayout
-  {...props}
+  {...baseProps}
   ogType="article"
   articlePublished={props.published}
   articleModified={props.modified}
   bodyClass="single single-post et_right_sidebar"
+  includeEtCache11Dynamic={false}
 >
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/wp-content/litespeed/css/2240482355da0ad689f91124395c8aaafcd5.css" media="all" />
+    <link rel="stylesheet" href="/wp-content/litespeed/css/1ed5608fae9998f381b27afd27b19ccefa79.css" media="all" />
+    <link rel="stylesheet" href="/wp-content/litespeed/css/37f0281d37a59297b8ed0b235a619225e5dc.css" media="all" />
+    {etInlineHref ? <link rel="stylesheet" href={etInlineHref} media="all" /> : null}
+    {etPostLinks.map((href) => <link rel="stylesheet" href={href} media="all" />)}
+  </Fragment>
   <Header />
   <div id="et-main-area">
     <div id="main-content" data-pagefind-body>
