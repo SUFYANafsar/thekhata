@@ -2,10 +2,30 @@
 import PageLayout from '../layouts/PageLayout.astro'
 ---
 <PageLayout
-  title="Online Accounting Software in Pakistan - Fast, Reliable, Secure"
-  description="Sales, Purchases, POS, Inventory, Manufacturing, & Accounting Software in a single place. 75+ accounting, inventory, and analytical reports."
+  title="Best Accounting & Inventory Software in Pakistan | FBR Software"
+  description="FBR Software — #1 accounting, inventory & POS software for small businesses in Pakistan. Includes FBR e-invoicing, 75+ reports, 14-day free trial. No credit card required."
   canonical="/"
-  ogImage="/wp-content/uploads/2022/01/splendid-accounts-logo.png"
+  ogImage="/wp-content/uploads/2021/08/logo.png"
+  schemaJson={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "FBR Software",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "url": "https://fbrsoftware.com",
+    "description": "Pakistan's leading accounting, inventory management and POS software for small and medium businesses. Supports FBR e-invoicing, multi-warehouse, manufacturing and 75+ reports.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "PKR",
+      "description": "14-day free trial, no credit card required"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "133"
+    }
+  })}
   bodyClass="fbr-home"
 >
   <Fragment slot="head">

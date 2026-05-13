@@ -26,7 +26,7 @@ const {
   description,
   canonical,
   ogType = 'website',
-  ogImage = '/wp-content/uploads/2022/01/splendid-accounts-logo.png',
+  ogImage = '/wp-content/uploads/2021/08/logo.png',
   articlePublished,
   articleModified,
   schemaJson,
@@ -59,17 +59,39 @@ const canonicalUrl = canonical
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:site_name" content="Spartan Accounts" />
+  <meta property="og:site_name" content="FBR Software" />
   <meta property="og:image" content={`https://FBRsoftware.com${ogImage}`} />
   {articlePublished && <meta property="article:published_time" content={articlePublished} />}
   {articleModified && <meta property="article:modified_time" content={articleModified} />}
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@spartanaccount1" />
+  <meta name="twitter:site" content="@fbrsoftware" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`https://FBRsoftware.com${ogImage}`} />
 
   <!-- Schema JSON-LD -->
   {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
+  <!-- Organization Schema (site-wide) -->
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "FBR Software",
+    "url": "https://fbrsoftware.com",
+    "logo": "https://fbrsoftware.com/wp-content/uploads/2021/08/logo.png",
+    "description": "FBR Software is Pakistan's leading accounting, inventory, and POS software for small and medium businesses.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+92-332-5008992",
+      "contactType": "customer support",
+      "availableLanguage": ["English", "Urdu"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/fbrsoftware",
+      "https://www.youtube.com/@fbrsoftware"
+    ]
+  })}</script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -124,7 +146,7 @@ const canonicalUrl = canonical
   <script is:inline>
     if (location.protocol === 'file:') {
       console.warn(
-        '[Spartan Astro] file:// breaks root-relative URLs (/wp-content/, /wp-includes/). After build, use npm run preview or npx serve dist — do not open dist/index.html directly.'
+        '[FBR Software] file:// breaks root-relative URLs (/wp-content/, /wp-includes/). After build, use npm run preview or npx serve dist — do not open dist/index.html directly.'
       )
     }
   </script>
