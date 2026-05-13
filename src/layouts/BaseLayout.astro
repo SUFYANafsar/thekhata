@@ -1,6 +1,6 @@
 ---
 import WAChat from '../components/WAChat.astro'
-import SplendidPopup from '../components/SplendidPopup.astro'
+import FBRPopup from '../components/FBRPopup.astro'
 interface Props {
   title: string
   description: string
@@ -40,6 +40,25 @@ const etPbGuttersClass = etPbGutters === '2' ? 'et_pb_gutters2' : 'et_pb_gutters
 const canonicalUrl = canonical
   ? `https://FBRsoftware.com${canonical}`
   : `https://FBRsoftware.com${Astro.url.pathname}`
+
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FBR Software",
+  "url": "https://fbrsoftware.com",
+  "logo": "https://fbrsoftware.com/wp-content/uploads/2021/08/logo.png",
+  "description": "FBR Software is Pakistan's leading accounting, inventory, and POS software for small and medium businesses.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+92-332-5008992",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "Urdu"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/fbrsoftware",
+    "https://www.youtube.com/@fbrsoftware"
+  ]
+})
 ---
 
 <!doctype html>
@@ -74,24 +93,7 @@ const canonicalUrl = canonical
   <!-- Schema JSON-LD -->
   {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
   <!-- Organization Schema (site-wide) -->
-  <script type="application/ld+json">{JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "FBR Software",
-    "url": "https://fbrsoftware.com",
-    "logo": "https://fbrsoftware.com/wp-content/uploads/2021/08/logo.png",
-    "description": "FBR Software is Pakistan's leading accounting, inventory, and POS software for small and medium businesses.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+92-332-5008992",
-      "contactType": "customer support",
-      "availableLanguage": ["English", "Urdu"]
-    },
-    "sameAs": [
-      "https://www.facebook.com/fbrsoftware",
-      "https://www.youtube.com/@fbrsoftware"
-    ]
-  })}</script>
+  <script type="application/ld+json" set:html={orgSchema} />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -212,6 +214,6 @@ const canonicalUrl = canonical
 
   <slot name="scripts" />
   <WAChat />
-  <SplendidPopup />
+  <FBRPopup />
 </body>
 </html>

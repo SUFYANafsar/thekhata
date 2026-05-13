@@ -1,0 +1,229 @@
+<style>
+.sp-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+}
+
+.sp-box {
+  width: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+  animation: sp-rise 0.3s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes sp-rise {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── Header ── */
+.sp-header {
+  background: #0d1b35;
+  padding: 20px 20px 16px;
+  position: relative;
+}
+.sp-close {
+  position: absolute;
+  top: 12px; right: 14px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  font-size: 16px; line-height: 1;
+  color: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.sp-close:hover { background: rgba(255,255,255,0.25); }
+
+.sp-avatars { display:flex; margin-bottom:12px; }
+.sp-avatars img {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1a3461;
+  margin-right: -8px;
+}
+.sp-avatars img:last-child { margin-right: 0; }
+
+.sp-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(37,211,102,0.15);
+  border: 1px solid rgba(37,211,102,0.35);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #4dffa0;
+  margin-bottom: 10px;
+  letter-spacing: .03em;
+}
+.sp-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #25D366;
+  flex-shrink: 0;
+  animation: sp-pulse 1.8s infinite;
+}
+@keyframes sp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.6); }
+  70%  { box-shadow: 0 0 0 5px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+.sp-header h2 {
+  font-size: 18px; font-weight: 800;
+  color: #fff; margin: 0 0 4px; line-height: 1.3;
+}
+.sp-header p { font-size: 12px; color: rgba(255,255,255,.65); margin: 0; }
+
+/* ── Body ── */
+.sp-body {
+  background: #fff;
+  padding: 18px 18px 20px;
+}
+.sp-bubble {
+  background: #f0f7ff;
+  border-left: 3px solid #2ea3f2;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #1a2b4a;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.sp-options {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 16px;
+}
+.sp-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: #f7faff;
+  border: 1.5px solid #dce8f5;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a2b4a;
+  text-decoration: none;
+  transition: all .18s;
+}
+.sp-option:hover {
+  background: #e4f2ff;
+  border-color: #2ea3f2;
+  color: #1565a8;
+}
+.sp-option span:first-child { font-size: 15px; }
+
+.sp-actions { display: flex; gap: 9px; }
+.sp-btn-wa {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 9px;
+  background: #25D366;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background .2s;
+}
+.sp-btn-wa:hover { background: #1da851; }
+.sp-btn-skip {
+  padding: 11px 16px;
+  border: 1.5px solid #dce8f5;
+  border-radius: 9px;
+  background: #fff;
+  color: #6b7a90;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .18s;
+}
+.sp-btn-skip:hover { background: #f7faff; color: #1a2b4a; }
+
+@media (max-width: 420px) {
+  .sp-box { width: 92vw; }
+}
+</style>
+
+<style is:global>
+  #fbr-popup a.sp-btn-wa,
+  #fbr-popup a.sp-btn-wa:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+</style>
+
+<div id="fbr-popup" class="sp-overlay">
+  <div class="sp-box">
+
+    <div class="sp-header">
+      <button class="sp-close" onclick="closeFBRPopup()">×</button>
+      <div class="sp-avatars">
+        <img src="/wp-content/uploads/2026/04/qadris-1.jpeg" alt="" loading="lazy" />
+        <img src="/wp-content/uploads/2026/05/usama-1.jpg"   alt="" loading="lazy" />
+        <img src="/wp-content/uploads/2026/04/zahids.jpeg"   alt="" loading="lazy" />
+      </div>
+      <div class="sp-online"><span class="sp-dot"></span> Team Online · 24/7</div>
+      <h2>Need help choosing<br/>the right plan?</h2>
+      <p>Our consultants are ready to guide you</p>
+    </div>
+
+    <div class="sp-body">
+      <div class="sp-bubble">
+        👋 Hi! We've helped <strong>5,000+ businesses</strong> set up FBR Software. Tell us what you need:
+      </div>
+
+      <div class="sp-options">
+        <a href="https://wa.me/923325008992?text=Hi%2C%20I%20want%20a%20free%20demo" target="_blank" rel="noopener" class="sp-option">
+          <span>🎯</span><span>Request a free demo</span>
+        </a>
+        <a href="https://wa.me/923325008992?text=Hi%2C%20I%20want%20to%20check%20pricing" target="_blank" rel="noopener" class="sp-option">
+          <span>💰</span><span>See pricing &amp; plans</span>
+        </a>
+        <a href="https://wa.me/923325008992?text=Hi%2C%20I%20need%20technical%20support" target="_blank" rel="noopener" class="sp-option">
+          <span>🛠️</span><span>Get technical support</span>
+        </a>
+      </div>
+
+      <div class="sp-actions">
+        <a
+          href="https://wa.me/923325008992?text=Hello%2C%20I%20need%20help%20with%20FBR%20Software"
+          target="_blank" rel="noopener noreferrer"
+          class="sp-btn-wa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <button type="button" class="sp-btn-skip" onclick="closeFBRPopup()">Not now</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script is:inline>
+window.closeFBRPopup = function () {
+  document.getElementById('fbr-popup').style.display = 'none';
+};
+setTimeout(function () {
+  document.getElementById('fbr-popup').style.display = 'flex';
+}, 90000);
+</script>
