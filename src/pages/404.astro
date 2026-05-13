@@ -1,0 +1,92 @@
+---
+import PageLayout from '../layouts/PageLayout.astro'
+---
+<PageLayout
+  title="Page Not Found | FBR Software"
+  description="The page you're looking for doesn't exist. Return to FBR Software — Pakistan's best accounting & inventory software."
+  canonical="/404/"
+  bodyClass="fbr-home"
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/css/pages/__home__-redesign.css" />
+    <style>
+      .fbr-404 {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 60px 20px;
+        background: #f7faff;
+      }
+      .fbr-404-inner { max-width: 560px; margin: 0 auto; }
+      .fbr-404-code {
+        font-size: clamp(80px, 15vw, 140px);
+        font-weight: 900;
+        line-height: 1;
+        background: linear-gradient(135deg, #1a3461, #2ea3f2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+      }
+      .fbr-404-icon { font-size: 48px; margin-bottom: 16px; }
+      .fbr-404-inner h1 {
+        font-size: clamp(22px, 3vw, 32px);
+        font-weight: 800;
+        color: #1a2b4a;
+        margin: 0 0 14px;
+      }
+      .fbr-404-inner p {
+        font-size: 16px;
+        color: #5a6a80;
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+      .fbr-404-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+      }
+      .fbr-404-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-top: 1px solid #e0eaf5;
+        padding-top: 28px;
+      }
+      .fbr-404-links a {
+        font-size: 13px;
+        font-weight: 600;
+        color: #2ea3f2;
+        text-decoration: none;
+      }
+      .fbr-404-links a:hover { color: #1a78c2; text-decoration: underline; }
+    </style>
+  </Fragment>
+
+  <div class="fbr-404">
+    <div class="fbr-404-inner">
+      <div class="fbr-404-code">404</div>
+      <div class="fbr-404-icon">🔍</div>
+      <h1>Page Not Found</h1>
+      <p>The page you're looking for doesn't exist or has been moved.<br />Let's get you back on track.</p>
+      <div class="fbr-404-actions">
+        <a href="/" class="fbr-btn fbr-btn-primary">🏠 Go to Homepage</a>
+        <a href="/contact/" class="fbr-btn fbr-btn-outline">💬 Contact Support</a>
+      </div>
+      <div class="fbr-404-links">
+        <a href="/pricing-plan/">Pricing Plans</a>
+        <a href="/free-trial/">Free Trial</a>
+        <a href="/blog/">Blog</a>
+        <a href="/fbr-digital-invoicing-software/">FBR E-Invoicing</a>
+        <a href="/inventory/">Inventory</a>
+        <a href="/point-of-sale/">POS</a>
+        <a href="/accounting/">Accounting</a>
+      </div>
+    </div>
+  </div>
+</PageLayout>
