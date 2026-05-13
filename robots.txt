@@ -1,10 +1,17 @@
 User-agent: *
+Allow: /
+
+# Block system/admin paths
 Disallow: /wp-json/
 Disallow: /xmlrpc.php
+Disallow: /wp-admin/
 Disallow: /feed/
 Disallow: /comments/
-Disallow: /author/
-Disallow: /category/
+Disallow: /wp-content/plugins/
+Disallow: /wp-includes/
+
+# Block thin/duplicate content
 Disallow: /tag/
+Disallow: /search/
 
 Sitemap: https://FBRsoftware.com/sitemap-index.xml
