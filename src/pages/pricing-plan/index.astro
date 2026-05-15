@@ -244,18 +244,18 @@ import PageLayout from '../../layouts/PageLayout.astro'
 
   <!-- TOGGLE -->
   <div class="fbr-toggle-wrap">
-    <span class="fbr-toggle-label active" id="lbl-yearly">Yearly <span class="save-badge">Save 25%</span></span>
+    <span class="fbr-toggle-label" id="lbl-yearly">Yearly <span class="save-badge">Save 25%</span></span>
     <label class="fbr-switch">
-      <input type="checkbox" id="plan-toggle" />
+      <input type="checkbox" id="plan-toggle" checked />
       <span class="fbr-switch-slider"></span>
     </label>
-    <span class="fbr-toggle-label" id="lbl-monthly">Monthly</span>
+    <span class="fbr-toggle-label active" id="lbl-monthly">Monthly</span>
   </div>
 
   <!-- PLANS -->
   <div class="fbr-plans-wrap">
     <!-- YEARLY PLANS -->
-    <div class="fbr-plans-grid" id="yearly-plans">
+    <div class="fbr-plans-grid" id="yearly-plans" style="display:none;">
 
       <!-- Free Trial -->
       <div class="fbr-plan-card">
@@ -399,7 +399,7 @@ import PageLayout from '../../layouts/PageLayout.astro'
     </div>
 
     <!-- MONTHLY PLANS -->
-    <div class="fbr-plans-grid" id="monthly-plans" style="display:none;">
+    <div class="fbr-plans-grid" id="monthly-plans">
 
       <!-- Free Trial -->
       <div class="fbr-plan-card">
